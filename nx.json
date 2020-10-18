@@ -29,6 +29,9 @@
     "exp-app-e2e": {
       "tags": [],
       "implicitDependencies": ["exp-app"]
+    },
+    "a11y-focus": {
+      "tags": ["scope:a11y"]
     }
   }
 }
