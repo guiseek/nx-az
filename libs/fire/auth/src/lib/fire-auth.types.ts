@@ -1,4 +1,5 @@
-export type FireAuthMessages = [FireAuthKeyMessage, string][];
+export type FireAuthError = Error & { code: FireAuthKeyMessage }
+export type FireAuthMessages = [FireAuthKeyMessage, string][]
 export type FireAuthKeyMessage =
   | `auth/app-deleted`
   | `auth/expired-action-code`

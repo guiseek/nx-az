@@ -1,3 +1,4 @@
+import { FireAuthError } from './fire-auth.types';
 import { Observable, Subject } from 'rxjs'
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/auth'
@@ -42,13 +43,36 @@ export class FireAuthService {
     this.afa
       .createUserWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        if (user) this.setUser(user)
+        if (user) this._setUser(user)
         this._stop()
       })
-      .catch(({ code, message }) => {
-        this.error.next(FireAuthMessage.getMessage(code))
+      .catch((error: FireAuthError) => {
+        this.error.next(FireAuthMessage.getByError(error))
         this._stop()
       })
+  }
+
+  login({ email, password }: AuthWithEmailAndPassword) {
+    this._start()
+    this.afa
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        if (user) this._setUser(user)
+        this._stop()
+      })
+      .catch((error: FireAuthError) => {
+        this.error.next(FireAuthMessage.getByError(error))
+        this._stop()
+      })
+  }
+
+  private _setUser(user: firebase.User) {
+    this.user.next({
+      name: user?.displayName,
+      phone: user?.phoneNumber,
+      photo: user?.photoURL,
+      email: user?.email,
+    })
   }
 
   private _start() {
@@ -56,23 +80,5 @@ export class FireAuthService {
   }
   private _stop() {
     this.loading.next(false)
-  }
-  login({ email, password }: AuthWithEmailAndPassword) {
-    this._start()
-    this.afa.signInWithEmailAndPassword(email, password).then(({ user }) => {
-      if (user) this.setUser(user)
-      this._stop()
-    }).catch(({ code, message }) => {
-      this.error.next(FireAuthMessage.getMessage(code))
-      this._stop()
-    })
-  }
-  setUser(user: firebase.User) {
-    this.user.next({
-      name: user?.displayName,
-      phone: user?.phoneNumber,
-      photo: user?.photoURL,
-      email: user?.email,
-    })
   }
 }
