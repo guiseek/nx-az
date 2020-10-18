@@ -1,3 +1,9 @@
 module.exports = {
-  projects: ['<rootDir>/apps/exp-app', '<rootDir>/libs/a11y/focus'],
-};
+  projects: [
+    '<rootDir>/apps/exp-app',
+    '<rootDir>/libs/a11y/focus',
+    '<rootDir>/libs/a11y/forms',
+    '<rootDir>/libs/util/types',
+    '<rootDir>/libs/fire/auth',
+  ],
+}

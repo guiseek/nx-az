@@ -10,7 +10,7 @@
       },
       "root": "apps/exp-app",
       "sourceRoot": "apps/exp-app/src",
-      "prefix": "nx-az",
+      "prefix": "nx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -20,12 +20,19 @@
             "main": "apps/exp-app/src/main.ts",
             "polyfills": "apps/exp-app/src/polyfills.ts",
             "tsConfig": "apps/exp-app/tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "@firebase/auth",
+              "@angular/fire/firestore"
+            ],
             "aot": true,
             "assets": [
               "apps/exp-app/src/favicon.ico",
               "apps/exp-app/src/assets"
             ],
-            "styles": ["apps/exp-app/src/styles.scss"],
+            "styles": [
+              "apps/exp-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +91,10 @@
               "apps/exp-app/tsconfig.spec.json",
               "apps/exp-app/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/exp-app/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/exp-app/**/*"
+            ]
           }
         },
         "test": {
@@ -93,6 +103,10 @@
             "jestConfig": "apps/exp-app/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
@@ -117,8 +131,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/exp-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/exp-app-e2e/**/*"]
+            "tsConfig": [
+              "apps/exp-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/exp-app-e2e/**/*"
+            ]
           }
         }
       }
@@ -148,13 +167,151 @@
               "libs/a11y/focus/tsconfig.lib.json",
               "libs/a11y/focus/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/a11y/focus/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/a11y/focus/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/a11y/focus/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "a11y-forms": {
+      "projectType": "library",
+      "root": "libs/a11y/forms",
+      "sourceRoot": "libs/a11y/forms/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/a11y/forms/tsconfig.lib.json",
+            "project": "libs/a11y/forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/a11y/forms/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/a11y/forms/tsconfig.lib.json",
+              "libs/a11y/forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/a11y/forms/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/a11y/forms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "util-types": {
+      "projectType": "library",
+      "root": "libs/util/types",
+      "sourceRoot": "libs/util/types/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/util/types/tsconfig.lib.json",
+            "project": "libs/util/types/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/util/types/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/util/types/tsconfig.lib.json",
+              "libs/util/types/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/util/types/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/util/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "fire-auth": {
+      "projectType": "library",
+      "root": "libs/fire/auth",
+      "sourceRoot": "libs/fire/auth/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/fire/auth/tsconfig.lib.json",
+            "project": "libs/fire/auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/fire/auth/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fire/auth/tsconfig.lib.json",
+              "libs/fire/auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/fire/auth/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fire/auth/jest.config.js",
             "passWithNoTests": true
           }
         }

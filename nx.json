@@ -32,6 +32,15 @@
     },
     "a11y-focus": {
       "tags": ["scope:a11y"]
+    },
+    "a11y-forms": {
+      "tags": ["scope:a11y"]
+    },
+    "util-types": {
+      "tags": ["scope:util"]
+    },
+    "fire-auth": {
+      "tags": ["scope:fire"]
     }
   }
 }
