@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "hackfestbrasil": {
+      "hosting": {
+        "exp-app": [
+          "hackfestbrasil"
+        ]
+      }
+    }
+  }
+}
