@@ -22,6 +22,7 @@ export class AuthComponent {
   constructor(private _fb: FormBuilder, private _fa: FireAuthService) {}
 
   onSubmit() {
-    this._fa.createEmailAndPassword(this.form.value)
+    // this._fa.createEmailAndPassword(this.form.value)
+    this._fa.login(this.form.value)
   }
 }
