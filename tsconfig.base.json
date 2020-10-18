@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-a11y/focus": ["libs/a11y/focus/src/index.ts"]
+      "@nx-a11y/focus": ["libs/a11y/focus/src/index.ts"],
+      "@nx-a11y/forms": ["libs/a11y/forms/src/index.ts"],
+      "@nx-util/types": ["libs/util/types/src/index.ts"],
+      "@nx-fire/auth": ["libs/fire/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
