@@ -1,0 +1,57 @@
+<p>
+  focus works!
+</p>
+<hr />
+<h2>Monitoring focus with FocusMonitor</h2>
+<div class="example-focus-monitor">
+  <button cdkMonitorSubtreeFocus (cdkFocusChange)="elementOriginChange($event)">
+    Focus Monitored Element ({{ elementOrigin }})
+  </button>
+</div>
+
+<div class="example-focus-monitor">
+  <div cdkMonitorSubtreeFocus (cdkFocusChange)="subtreeOriginChange($event)">
+    <p>Focus Monitored Subtree ({{ subtreeOrigin }})</p>
+    <button>Child Button 1</button>
+    <button>Child Button 2</button>
+  </div>
+</div>
+
+<hr />
+<h2>Focusing with a specific FocusOrigin</h2>
+
+<div class="example-focus-monitor">
+  <button #monitored>1. Focus Monitored Element ({{ origin }})</button>
+  <button #unmonitored>2. Not Monitored</button>
+</div>
+
+<div>
+  <label>Simulated focus origin</label>
+  <select #simulatedOrigin value="mouse">
+    <option value="mouse">Mouse</option>
+    <option value="keyboard">Keyboard</option>
+    <option value="touch">Touch</option>
+    <option value="program">Programmatic</option>
+  </select>
+</div>
+<button (click)="focusMonitor.focusVia(monitored, simulatedOrigin.value)">
+  Focus button #1
+</button>
+<button (click)="focusMonitor.focusVia(unmonitored, simulatedOrigin.value)">
+  Focus button #2
+</button>
+
+<hr />
+<h2>Monitoring focus with FocusMonitor</h2>
+
+<div class="example-focus-monitor">
+  <button #element>Focus Monitored Element ({{ elementOrigin }})</button>
+</div>
+
+<div class="example-focus-monitor">
+  <div #subtree>
+    <p>Focus Monitored Subtree ({{ subtreeOrigin }})</p>
+    <button>Child Button 1</button>
+    <button>Child Button 2</button>
+  </div>
+</div>

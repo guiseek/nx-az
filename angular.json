@@ -122,6 +122,48 @@
           }
         }
       }
+    },
+    "a11y-focus": {
+      "projectType": "library",
+      "root": "libs/a11y/focus",
+      "sourceRoot": "libs/a11y/focus/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/a11y/focus/tsconfig.lib.json",
+            "project": "libs/a11y/focus/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/a11y/focus/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/a11y/focus/tsconfig.lib.json",
+              "libs/a11y/focus/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/a11y/focus/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/a11y/focus/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
@@ -167,7 +209,8 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     }
   },
   "defaultProject": "exp-app"
