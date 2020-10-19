@@ -1,1 +1,1 @@
-export * from './lib/a11y-forms.module';
+export * from './lib/a11y-forms.module'

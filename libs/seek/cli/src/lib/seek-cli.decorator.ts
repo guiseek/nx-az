@@ -34,17 +34,16 @@ const createSeekCliParamDecorator = <O>(paramtype: SeekCliParamTypes) => {
 }
 
 export interface SeekCliMetadata {
-  params: SeekCliParamMetadata<SeekCliPositionalOption | SeekCliOptionsOption>;
-  option: SeekCliOption;
+  params: SeekCliParamMetadata<SeekCliPositionalOption | SeekCliOptionsOption>
+  option: SeekCliOption
 }
 
 export interface SeekCliOption {
-  aliases?: string[] | string;
-  command: string[] | string;
-  describe?: string | false;
-  autoExit?: boolean;
+  aliases?: string[] | string
+  command: string[] | string
+  describe?: string | false
+  autoExit?: boolean
 }
-
 
 // export const SeekCli = (...args: string[]) => SetMetadata('seek-cli', args)
 export function SeekCli(option: SeekCliOption): MethodDecorator {
@@ -54,33 +53,32 @@ export function SeekCli(option: SeekCliOption): MethodDecorator {
     descriptor: PropertyDescriptor
   ) => {
     if (option && typeof option.autoExit !== 'boolean') {
-      option.autoExit = true;
+      option.autoExit = true
     }
 
     const metadata: SeekCliMetadata = {
       params: Reflect.getMetadata(CLI_ARGS_METADATA, descriptor.value),
-      option
-    };
+      option,
+    }
 
-    SetMetadata(CLI_HANDLER_METADATA, metadata)(target, key, descriptor);
-  };
+    SetMetadata(CLI_HANDLER_METADATA, metadata)(target, key, descriptor)
+  }
 }
 
 export interface SeekCliPositionalOption extends PositionalOptions {
-  name: string;
+  name: string
 }
 
 export const Positional = createSeekCliParamDecorator<SeekCliPositionalOption>(
   SeekCliParamTypes.POSITIONAL
-);
+)
 
 export interface SeekCliOptionsOption extends Options {
-  name: string;
+  name: string
 }
 
 export const Option = createSeekCliParamDecorator<SeekCliOptionsOption>(
   SeekCliParamTypes.OPTION
-);
+)
 
-export const Argv = createSeekCliParamDecorator(SeekCliParamTypes.ARGV);
-
+export const Argv = createSeekCliParamDecorator(SeekCliParamTypes.ARGV)

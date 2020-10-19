@@ -1,1 +1,1 @@
-export type EventTargetAs<T = HTMLElement> = Event & { target: T };
+export type EventTargetAs<T = HTMLElement> = Event & { target: T }

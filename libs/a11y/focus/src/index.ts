@@ -1,1 +1,1 @@
-export * from './lib/a11y-focus.module';
+export * from './lib/a11y-focus.module'

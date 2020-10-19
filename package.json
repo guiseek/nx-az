@@ -25,7 +25,8 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "cm": "cz"
   },
   "private": true,
   "dependencies": {
@@ -57,6 +58,9 @@
     "@angular/cli": "~10.1.3",
     "@angular/compiler-cli": "^10.1.0",
     "@angular/language-service": "^10.1.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-angular": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@compodoc/compodoc": "^1.1.11",
     "@nestjs/testing": "^7.4.4",
     "@ngneat/spectator": "^6.0.0",
@@ -65,14 +69,20 @@
     "@nrwl/jest": "10.3.1",
     "@nrwl/nest": "^10.3.1",
     "@nrwl/workspace": "10.3.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.1.1",
     "@twittwer/compodoc": "1.3.2",
     "@types/cypress-axe": "^0.8.0",
     "@types/jest": "26.0.8",
+    "@types/listr": "^0.14.2",
     "@types/lodash.compact": "^3.0.6",
     "@types/lodash.flattendeep": "^4.4.6",
     "@types/node": "~8.9.4",
     "axe-core": "^4.0.2",
     "codelyzer": "~5.0.1",
+    "commitizen": "^4.2.1",
     "cypress": "^4.1.0",
     "cypress-axe": "^0.8.1",
     "dotenv": "6.2.0",
@@ -80,17 +90,32 @@
     "firebase-nightlight": "^3.1.2",
     "firebase-tools": "^8.0.0",
     "fuzzy": "^0.1.3",
+    "husky": "^4.3.0",
     "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.1",
+    "lint-staged": "^10.4.2",
+    "listr": "^0.14.3",
     "ng-packagr": "^10.1.0",
     "open": "^7.0.3",
     "prettier": "2.0.4",
     "reflect-metadata": "^0.1.13",
+    "semantic-release": "^17.2.1",
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
     "typescript": "~4.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add ."
+    ]
   }
 }

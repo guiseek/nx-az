@@ -1,28 +1,32 @@
+import { FireAuthModule } from '@nx-fire/auth'
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
+import { By } from '@angular/platform-browser'
+import { DebugElement } from '@angular/core'
 
-import { AuthCreateComponent } from './auth-create.component';
+import { AuthCreateComponent } from './auth-create.component'
+import { ReactiveFormsModule } from '@angular/forms'
 
 describe('AuthCreateComponent', () => {
-  let component: AuthCreateComponent;
-  let fixture: ComponentFixture<AuthCreateComponent>;
+  let component: AuthCreateComponent
+  let fixture: ComponentFixture<AuthCreateComponent>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AuthCreateComponent ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FireAuthModule, ReactiveFormsModule],
+        declarations: [AuthCreateComponent],
+      }).compileComponents()
     })
-    .compileComponents();
-  }));
+  )
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthCreateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(AuthCreateComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

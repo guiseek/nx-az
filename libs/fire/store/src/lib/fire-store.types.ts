@@ -1,1 +1,1 @@
-export type FireStorePath = string | string[];
+export type FireStorePath = string | string[]
