@@ -8,7 +8,12 @@ import { FireAuthService } from '@nx-fire/auth'
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-  form = this._fb.group({
+  login = this._fb.group({
+    email: [],
+    password: [],
+  })
+
+  create = this._fb.group({
     email: [],
     password: [],
   })
@@ -21,8 +26,13 @@ export class AuthComponent {
 
   constructor(private _fb: FormBuilder, private _fa: FireAuthService) {}
 
-  onSubmit() {
-    // this._fa.createEmailAndPassword(this.form.value)
-    this._fa.login(this.form.value)
+  onLogin(value: any) {
+    console.log(value)
+    this._fa.login(value)
+  }
+  onCreate(value?: any) {
+    console.log(value)
+
+    this._fa.createEmailAndPassword(this.login.value)
   }
 }

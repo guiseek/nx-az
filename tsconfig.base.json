@@ -20,7 +20,8 @@
       "@nx-a11y/forms": ["libs/a11y/forms/src/index.ts"],
       "@nx-util/types": ["libs/util/types/src/index.ts"],
       "@nx-fire/auth": ["libs/fire/auth/src/index.ts"],
-      "@nx-seek/cli": ["libs/seek/cli/src/index.ts"]
+      "@nx-seek/cli": ["libs/seek/cli/src/index.ts"],
+      "@nx-fire/store": ["libs/fire/store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

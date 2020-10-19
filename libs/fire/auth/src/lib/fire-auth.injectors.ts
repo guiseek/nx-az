@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core'
+
 export type AuthProvider = 'google' | 'github'
 
 export interface FireAuthOptions {

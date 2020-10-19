@@ -1,3 +1,5 @@
+export type none = null | undefined
+
 export type FireAuthError = Error & { code: FireAuthKeyMessage }
 export type FireAuthMessages = [FireAuthKeyMessage, string][]
 export type FireAuthKeyMessage =

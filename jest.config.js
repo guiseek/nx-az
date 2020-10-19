@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/util/types',
     '<rootDir>/libs/fire/auth',
     '<rootDir>/libs/seek/cli',
+    '<rootDir>/libs/fire/store',
   ],
 }

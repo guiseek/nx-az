@@ -3,4 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .forms {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
 }

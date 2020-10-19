@@ -1,22 +1,9 @@
-import { FireAuthError } from './fire-auth.types';
-import { Observable, Subject } from 'rxjs'
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/auth'
-import { auth } from 'firebase/app'
 import { FireAuthMessage } from './fire-auth.message'
-
-export type none = null | undefined
-
-export interface AuthWithEmailAndPassword {
-  email: string
-  password: string
-}
-export interface FireAuthUser {
-  name: string | none
-  email: string | none
-  photo: string | none
-  phone: string | none
-}
+import { FireAuthError } from './fire-auth.types'
+import { AuthWithEmailAndPassword, FireAuthUser } from './fire-auth.interfaces'
+import { Subject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
@@ -33,8 +20,6 @@ export class FireAuthService {
 
   private error = new Subject<string>()
   error$ = this.error.asObservable()
-
-  message = new FireAuthMessage()
 
   constructor(private readonly afa: AngularFireAuth) {}
 
