@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/a11y/forms',
     '<rootDir>/libs/util/types',
     '<rootDir>/libs/fire/auth',
+    '<rootDir>/libs/seek/cli',
   ],
 }

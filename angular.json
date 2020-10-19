@@ -417,6 +417,41 @@
           }
         }
       }
+    },
+    "seek-cli": {
+      "root": "libs/seek/cli",
+      "sourceRoot": "libs/seek/cli/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/seek/cli/tsconfig.lib.json",
+              "libs/seek/cli/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/seek/cli/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/seek/cli/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/seek/cli",
+            "tsConfig": "libs/seek/cli/tsconfig.lib.json",
+            "packageJson": "libs/seek/cli/package.json",
+            "main": "libs/seek/cli/src/index.ts",
+            "assets": ["libs/seek/cli/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {
