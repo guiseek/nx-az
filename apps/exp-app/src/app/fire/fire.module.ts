@@ -11,7 +11,10 @@ import { FireAuthModule } from '@nx-fire/auth';
   imports: [
     CommonModule,
     FireRoutes,
-    FireAuthModule.forRoot({}, [['auth/invalid-email', 'Nananina não!']]),
+    FireAuthModule.forRoot({}, [
+      ['auth/invalid-email', 'Nhauhauhauhahu ananina não!'],
+      ['auth/too-many-requests', 'Você adicionou']
+    ]),
     ReactiveFormsModule
   ],
   declarations: [FireComponent, AuthComponent]
