@@ -1,7 +1,7 @@
-import { FireAuthMessage } from './fire-auth.message';
+import { FireAuthMessage } from './fire-auth.message'
 
 describe('FireAuthMessage', () => {
   it('should create an instance', () => {
-    expect(new FireAuthMessage()).toBeTruthy();
-  });
-});
+    expect(new FireAuthMessage()).toBeTruthy()
+  })
+})

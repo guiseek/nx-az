@@ -69,14 +69,16 @@
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
-    transition: 0.8s stroke-dasharray ease, 0.8s stroke-dashoffset ease, 0.8s stroke ease;
+    transition: 0.8s stroke-dasharray ease, 0.8s stroke-dashoffset ease,
+      0.8s stroke ease;
   }
 
   /* Check */
   .form-checkbox input[type='checkbox'] + label svg path {
     stroke-dasharray: 100px 200px;
     stroke-dashoffset: 101px;
-    transition: 0.2s stroke-dasharray ease, 0.2s stroke-dashoffset ease, 0.2s stroke ease;
+    transition: 0.2s stroke-dasharray ease, 0.2s stroke-dashoffset ease,
+      0.2s stroke ease;
   }
 
   .form-checkbox input[type='checkbox']:checked + label svg path {

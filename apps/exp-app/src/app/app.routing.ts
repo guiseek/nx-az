@@ -1,5 +1,5 @@
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { Routes, RouterModule } from '@angular/router'
+import { HomeComponent } from './home/home.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,6 +11,6 @@ const routes: Routes = [
     path: 'fire',
     loadChildren: () => import('./fire/fire.module').then((m) => m.FireModule),
   },
-];
+]
 
-export const AppRoutes = RouterModule.forRoot(routes);
+export const AppRoutes = RouterModule.forRoot(routes)

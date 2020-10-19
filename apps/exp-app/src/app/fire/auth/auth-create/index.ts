@@ -1,1 +1,1 @@
-export * from './auth-create.component';
+export * from './auth-create.component'
