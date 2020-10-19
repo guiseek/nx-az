@@ -44,6 +44,9 @@
     },
     "doc-app": {
       "tags": ["type:app"]
+    },
+    "seek-cli": {
+      "tags": ["scope:seek", "platform:cli"]
     }
   }
 }
