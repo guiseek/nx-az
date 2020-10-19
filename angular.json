@@ -30,9 +30,7 @@
               "apps/exp-app/src/favicon.ico",
               "apps/exp-app/src/assets"
             ],
-            "styles": [
-              "apps/exp-app/src/styles.scss"
-            ],
+            "styles": ["apps/exp-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -91,10 +89,7 @@
               "apps/exp-app/tsconfig.spec.json",
               "apps/exp-app/tsconfig.editor.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/exp-app/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/exp-app/**/*"]
           }
         },
         "test": {
@@ -131,13 +126,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/exp-app-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/exp-app-e2e/**/*"
-            ]
+            "tsConfig": ["apps/exp-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/exp-app-e2e/**/*"]
           }
         }
       }
@@ -167,10 +157,7 @@
               "libs/a11y/focus/tsconfig.lib.json",
               "libs/a11y/focus/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/a11y/focus/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/a11y/focus/**/*"]
           }
         },
         "test": {
@@ -212,10 +199,7 @@
               "libs/a11y/forms/tsconfig.lib.json",
               "libs/a11y/forms/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/a11y/forms/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/a11y/forms/**/*"]
           }
         },
         "test": {
@@ -257,10 +241,7 @@
               "libs/util/types/tsconfig.lib.json",
               "libs/util/types/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/util/types/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/util/types/**/*"]
           }
         },
         "test": {
@@ -302,10 +283,7 @@
               "libs/fire/auth/tsconfig.lib.json",
               "libs/fire/auth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/fire/auth/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/fire/auth/**/*"]
           }
         },
         "test": {
@@ -314,11 +292,129 @@
             "jestConfig": "libs/fire/auth/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "compodoc": {
+          "builder": "@twittwer/compodoc:compodoc",
+          "options": {
+            "tsConfig": "libs/fire/auth/tsconfig.lib.json",
+            "outputPath": "dist/compodoc/fire-auth"
+          },
+          "configurations": {
+            "json": {
+              "exportFormat": "json"
+            },
+            "html": {
+              "exportFormat": "html"
+            }
+          }
         }
       },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "doc-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/doc-app",
+      "sourceRoot": "apps/doc-app/src",
+      "prefix": "doc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/doc-app",
+            "index": "apps/doc-app/src/index.html",
+            "main": "apps/doc-app/src/main.ts",
+            "polyfills": "apps/doc-app/src/polyfills.ts",
+            "tsConfig": "apps/doc-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/doc-app/src/favicon.ico",
+              "apps/doc-app/src/assets"
+            ],
+            "styles": ["apps/doc-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/doc-app/src/environments/environment.ts",
+                  "with": "apps/doc-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "doc-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "doc-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "doc-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/doc-app/tsconfig.app.json",
+              "apps/doc-app/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/doc-app/**/*"]
+          }
+        },
+        "compodoc": {
+          "builder": "@twittwer/compodoc:compodoc",
+          "options": {
+            "tsConfig": "apps/doc-app/tsconfig.compodoc.json",
+            "outputPath": "dist/compodoc/doc-app",
+            "workspaceDocs": true
+          },
+          "configurations": {
+            "json": {
+              "exportFormat": "json"
+            },
+            "html": {
+              "exportFormat": "html"
+            }
+          }
         }
       }
     }
