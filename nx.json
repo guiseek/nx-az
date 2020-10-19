@@ -1,7 +1,7 @@
 {
   "npmScope": "nx-az",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "angular.json": "*",
@@ -47,6 +47,9 @@
     },
     "seek-cli": {
       "tags": ["scope:seek", "platform:cli"]
+    },
+    "fire-store": {
+      "tags": ["scope:fire"]
     }
   }
 }

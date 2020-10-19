@@ -1,0 +1,27 @@
+<p>
+  auth-create works!
+</p>
+<form (ngSubmit)="onCreate()" [formGroup]="form">
+  <div>
+    <label for="create_email">Email</label>
+    <input
+      formControlName="email"
+      type="email"
+      name="create_email"
+      id="create_email"
+      required
+    />
+  </div>
+  <div>
+    <label for="create_password">Password</label>
+    <input
+      formControlName="password"
+      type="password"
+      name="create_password"
+      id="create_password"
+      required
+    />
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>

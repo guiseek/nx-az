@@ -1,22 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { ReactiveFormsModule } from '@angular/forms'
 
-import { FireRoutes } from './fire.routing';
-import { FireComponent } from './fire.component';
-import { AuthComponent } from './auth/auth.component';
-import { FireAuthModule } from '@nx-fire/auth';
+import { FireAuthModule } from '@nx-fire/auth'
+
+import { FireRoutes } from './fire.routing'
+import { FireComponent } from './fire.component'
+import { AuthComponent } from './auth/auth.component'
+import { AuthLoginComponent } from './auth/auth-login'
+import { AuthCreateComponent } from './auth/auth-create'
 
 @NgModule({
   imports: [
     CommonModule,
     FireRoutes,
     FireAuthModule.forRoot({}, [
-      ['auth/invalid-email', 'Nhauhauhauhahu ananina não!'],
-      ['auth/too-many-requests', 'Você adicionou']
+      ['auth/invalid-email', 'O email informado não é um endereço válido!']
     ]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [FireComponent, AuthComponent]
+  declarations: [
+    FireComponent,
+    AuthComponent,
+    AuthCreateComponent,
+    AuthLoginComponent,
+  ],
 })
-export class FireModule { }
+export class FireModule {}

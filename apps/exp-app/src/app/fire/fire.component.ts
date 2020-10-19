@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'nx-fire',
+  selector: 'nx-az-fire',
   templateUrl: './fire.component.html',
   styleUrls: ['./fire.component.scss']
 })

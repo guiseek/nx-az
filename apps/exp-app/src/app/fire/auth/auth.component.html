@@ -1,4 +1,4 @@
-<section>
+<div>
   <p>
     auth works!
   </p>
@@ -7,28 +7,13 @@
 
   <p>{{ (loading$ | async) ? 'Carregando...' : '' }}</p>
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div>
-      <label for="email">Email</label>
-      <input
-        formControlName="email"
-        type="email"
-        name="email"
-        id="email"
-        required
-      />
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input
-        formControlName="password"
-        type="password"
-        name="password"
-        id="password"
-        required
-      />
-    </div>
+  <pre>{{ user$ | async }}</pre>
 
-    <button type="submit">Enviar</button>
-  </form>
-</section>
+  <div class="forms">
+    <nx-az-auth-create
+      id="create"
+      (create)="onCreate($event)"
+    ></nx-az-auth-create>
+    <nx-az-auth-login id="login" (login)="onLogin($event)"></nx-az-auth-login>
+  </div>
+</div>

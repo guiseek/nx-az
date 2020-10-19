@@ -448,10 +448,48 @@
             "tsConfig": "libs/seek/cli/tsconfig.lib.json",
             "packageJson": "libs/seek/cli/package.json",
             "main": "libs/seek/cli/src/index.ts",
-            "assets": ["libs/seek/cli/*.md"]
+            "assets": ["libs/seek/cli/*.md", "libs/seek/cli/LICENSE"]
           }
         }
       }
+    },
+    "fire-store": {
+      "projectType": "library",
+      "root": "libs/fire/store",
+      "sourceRoot": "libs/fire/store/src",
+      "prefix": "nx-az",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/fire/store/tsconfig.lib.json",
+            "project": "libs/fire/store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/fire/store/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fire/store/tsconfig.lib.json",
+              "libs/fire/store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/fire/store/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fire/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
