@@ -1,0 +1,10 @@
+<p>auth works!</p>
+
+<p>{{ (loading$ | async) ? 'Carregando' : '' }}</p>
+
+<nx-feat-auth>
+  <nx-feat-auth-form
+    (changed)="onChange($event)"
+    (submitted)="onSubmit($event)"
+  ></nx-feat-auth-form>
+</nx-feat-auth>

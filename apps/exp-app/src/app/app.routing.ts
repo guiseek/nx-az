@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'fire',
     loadChildren: () => import('./fire/fire.module').then((m) => m.FireModule),
   },
+  {
+    path: 'feat',
+    loadChildren: () => import('./feat/feat.module').then((m) => m.FeatModule),
+  },
 ]
 
 export const AppRoutes = RouterModule.forRoot(routes)
