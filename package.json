@@ -25,8 +25,7 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "commit": "git-cz"
+    "help": "nx help"
   },
   "private": true,
   "dependencies": {

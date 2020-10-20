@@ -14,6 +14,7 @@ import { AppRoutes } from './app.routing'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { FireModule } from './fire/fire.module'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -27,6 +28,7 @@ import { FireModule } from './fire/fire.module'
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
