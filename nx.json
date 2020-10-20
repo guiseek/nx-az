@@ -50,6 +50,9 @@
     },
     "fire-store": {
       "tags": ["scope:fire"]
+    },
+    "feat-auth": {
+      "tags": ["scope:feat"]
     }
   }
 }

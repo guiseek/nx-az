@@ -25,11 +25,13 @@
   justify-content: center;
 }
 
-header {
-  background-color: #143055;
+.header {
   color: white;
   padding: 5px;
   border-radius: 3px;
+}
+.nav-menu {
+  display: flex;
 }
 nav {
   padding: 0 8px;
