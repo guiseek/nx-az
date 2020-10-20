@@ -17,24 +17,17 @@ module.exports = {
   ],
 
   scopes: [
-    { name: 'main-front', description: 'anything Main Front scope' },
+    { name: 'a11y', description: 'anything a11y scope' },
     {
-      name: 'main-front-admin',
-      description: 'anything Main Front Admin specific',
+      name: 'feat',
+      description: 'anything feat specific',
     },
-    { name: 'main-api', description: 'anything Main API scope' },
-    { name: 'api-admin', description: 'anything API Admin specific' },
-    { name: 'admin', description: 'anything Admin specific' },
-    { name: 'articles', description: 'anything Article specific' },
-    { name: 'server', description: 'anything Server specific' },
-    { name: 'ui-kit', description: 'anything UiKit specific' },
-    { name: 'chat-panel', description: 'anything ChatPanel specific' },
-    { name: 'ngex-crud', description: 'anything NgCrud specific' },
-    { name: 'docs', description: 'anything related to docs infrastructure' },
+    { name: 'fire', description: 'anything fire scope' },
+    { name: 'seek', description: 'anything seek specific' },
+    { name: 'util', description: 'anything util specific' },
     {
-      name: 'testing',
-      description:
-        'anything testing specific (e.g., jest, cypress or util-mock)',
+      name: 'test',
+      description: 'anything test specific (e.g., jest, cypress or util-mock)',
     },
     {
       name: 'repo',
