@@ -1,4 +1,4 @@
-import { FireAuthMessages } from './fire-auth.types';
+import { FireAuthMessages } from './fire-auth.types'
 
 export const fireAuthMessages: FireAuthMessages = [
   [`auth/app-deleted`, `O banco de dados não foi localizado.`],
@@ -147,10 +147,7 @@ export const fireAuthMessages: FireAuthMessages = [
   ],
   [`auth/id-token-expired`, `O token informado expirou.`],
   [`auth/id-token-revoked`, `O token informado perdeu a validade.`],
-  [
-    `auth/invalid-argument`,
-    `Um argumento inválido foi fornecido a um método.`,
-  ],
+  [`auth/invalid-argument`, `Um argumento inválido foi fornecido a um método.`],
   [
     `auth/invalid-creation-time`,
     `O horário da criação precisa ser uma data UTC válida.`,
@@ -165,10 +162,7 @@ export const fireAuthMessages: FireAuthMessages = [
     `auth/invalid-hash-algorithm`,
     `O algoritmo de HASH não é uma criptografia compatível.`,
   ],
-  [
-    `auth/invalid-hash-block-size`,
-    `O tamanho do bloco de HASH não é válido.`,
-  ],
+  [`auth/invalid-hash-block-size`, `O tamanho do bloco de HASH não é válido.`],
   [
     `auth/invalid-hash-derived-key-length`,
     `O tamanho da chave derivada do HASH não é válido.`,
@@ -203,10 +197,7 @@ export const fireAuthMessages: FireAuthMessages = [
   [`auth/invalid-password-hash`, `O HASH da senha não é válida.`],
   [`auth/invalid-password-salt`, `O SALT da senha não é válido.`],
   [`auth/invalid-photo-url`, `A URL da foto de usuário é inválido.`],
-  [
-    `auth/invalid-provider-id`,
-    `O identificador de provedor não é compatível.`,
-  ],
+  [`auth/invalid-provider-id`, `O identificador de provedor não é compatível.`],
   [
     `auth/invalid-session-cookie-duration`,
     `A duração do COOKIE da sessão precisa ser um número válido em milissegundos, entre 5 minutos e 2 semanas.`,
@@ -228,10 +219,7 @@ export const fireAuthMessages: FireAuthMessages = [
     `auth/missing-hash-algorithm`,
     `É necessário fornecer o algoritmo de geração de HASH e seus parâmetros para importar usuários.`,
   ],
-  [
-    `auth/missing-uid`,
-    `Um identificador é necessário para a operação atual.`,
-  ],
+  [`auth/missing-uid`, `Um identificador é necessário para a operação atual.`],
   [
     `auth/reserved-claims`,
     `Uma ou mais propriedades personalizadas fornecidas usaram palavras reservadas.`,
@@ -239,10 +227,7 @@ export const fireAuthMessages: FireAuthMessages = [
   [`auth/session-cookie-revoked`, `O COOKIE da sessão perdeu a validade.`],
   [`auth/uid-alread-exists`, `O indentificador fornecido já está em uso.`],
   [`auth/email-already-exists`, `O e-mail fornecido já está em uso.`],
-  [
-    `auth/phone-number-already-exists`,
-    `O telefone fornecido já está em uso.`,
-  ],
+  [`auth/phone-number-already-exists`, `O telefone fornecido já está em uso.`],
   [`auth/project-not-found`, `Nenhum projeto foi encontrado.`],
   [
     `auth/insufficient-permission`,

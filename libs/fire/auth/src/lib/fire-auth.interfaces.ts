@@ -1,4 +1,4 @@
-import { none } from './fire-auth.types';
+import { none } from './fire-auth.types'
 
 export interface AuthWithEmailAndPassword {
   email: string

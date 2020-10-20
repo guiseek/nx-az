@@ -15,7 +15,7 @@ import { AuthCreateComponent } from './auth/auth-create'
     CommonModule,
     FireRoutes,
     FireAuthModule.forRoot({}, [
-      ['auth/invalid-email', 'O email informado não é um endereço válido!']
+      ['auth/invalid-email', 'O email informado não é um endereço válido!'],
     ]),
     ReactiveFormsModule,
   ],

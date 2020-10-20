@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { A11yModule } from '@angular/cdk/a11y'
 import { NgModule } from '@angular/core'
 
-import { firebaseConfig } from './../environments/firebase-config';
+import { firebaseConfig } from './../environments/firebase-config'
 
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth'
@@ -26,7 +26,7 @@ import { FireModule } from './fire/fire.module'
 
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
