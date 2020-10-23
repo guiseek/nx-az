@@ -532,6 +532,76 @@
           "style": "scss"
         }
       }
+    },
+    "core-domain": {
+      "root": "libs/core/domain",
+      "sourceRoot": "libs/core/domain/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/domain/tsconfig.lib.json",
+              "libs/core/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/core/domain/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/core/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/core/domain",
+            "tsConfig": "libs/core/domain/tsconfig.lib.json",
+            "packageJson": "libs/core/domain/package.json",
+            "main": "libs/core/domain/src/index.ts",
+            "assets": ["libs/core/domain/*.md"]
+          }
+        }
+      }
+    },
+    "core-data": {
+      "root": "libs/core/data",
+      "sourceRoot": "libs/core/data/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/data/tsconfig.lib.json",
+              "libs/core/data/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/core/data/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/core/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/core/data",
+            "tsConfig": "libs/core/data/tsconfig.lib.json",
+            "packageJson": "libs/core/data/package.json",
+            "main": "libs/core/data/src/index.ts",
+            "assets": ["libs/core/data/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {
