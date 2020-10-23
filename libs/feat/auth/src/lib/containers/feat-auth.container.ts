@@ -1,3 +1,4 @@
+import { AuthLoginDb } from '@nx-core/data'
 import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core'
 import { FireAuthService } from '@nx-fire/auth'
 import { Subject } from 'rxjs'
@@ -12,6 +13,7 @@ export class FeatAuthContainer implements OnDestroy {
 
   user$ = this._fa.user$
 
+  // constructor(protected _fa: FireAuthService) {
   constructor(protected _fa: FireAuthService) {
     console.log(_fa)
   }

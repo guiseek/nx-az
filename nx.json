@@ -53,6 +53,12 @@
     },
     "feat-auth": {
       "tags": ["scope:feat"]
+    },
+    "core-domain": {
+      "tags": ["scope:core"]
+    },
+    "core-data": {
+      "tags": ["scope:core"]
     }
   }
 }
