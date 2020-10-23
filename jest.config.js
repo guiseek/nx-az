@@ -7,5 +7,8 @@ module.exports = {
     '<rootDir>/libs/fire/auth',
     '<rootDir>/libs/seek/cli',
     '<rootDir>/libs/fire/store',
+    '<rootDir>/libs/feat/auth',
+    '<rootDir>/libs/core/domain',
+    '<rootDir>/libs/core/data',
   ],
 }

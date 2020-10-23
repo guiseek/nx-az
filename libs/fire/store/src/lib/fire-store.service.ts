@@ -33,6 +33,10 @@ export class FireStoreService<T extends FireStoreDoc> {
     return this.afs.doc(normalizePath(path))
   }
 
+  del(path: FireStorePath) {
+    return this.afs.doc(normalizePath(path)).delete()
+  }
+
   writeBatch(path: string, data: T[]) {
     const batch = this.afs.firestore.batch()
 

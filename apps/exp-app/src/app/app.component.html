@@ -1,14 +1,50 @@
-<header class="flex">
+<mat-toolbar color="primary" class="flex">
   <img
     alt="Nx logo"
     width="75"
     src="https://nx.dev/assets/images/nx-logo-white.svg"
   />
   <h1>Welcome to {{ title }}!</h1>
-</header>
-<nav>
+</mat-toolbar>
+<mat-nav-list class="nav-menu">
+  <a mat-list-item routerLink="/" > Home </a>
+
+  <a mat-list-item routerLink="/a11y" [matMenuTriggerFor]="menuA11y" > A11y </a>
+  <mat-menu #menuA11y="matMenu">
+    <a mat-menu-item routerLink="/a11y/forms">
+      <mat-icon>dialpad</mat-icon>
+      <span>Forms</span>
+    </a>
+    <button mat-menu-item  routerLink="/a11y/focus">
+      <mat-icon>voicemail</mat-icon>
+      <span>Focus</span>
+    </button>
+    <button mat-menu-item routerLink="/a11y/rdf-model">
+      <mat-icon>notifications_off</mat-icon>
+      <span>RDF Model</span>
+    </button>
+  </mat-menu>
+
+  <a mat-list-item routerLink="/fire" [matMenuTriggerFor]="menuFire" > Fire </a>
+  <mat-menu #menuFire="matMenu">
+    <a mat-menu-item routerLink="/fire/auth">
+      <mat-icon>dialpad</mat-icon>
+      <span>Auth</span>
+    </a>
+  </mat-menu>
+
+  <a mat-list-item routerLink="/feat" [matMenuTriggerFor]="menuFeat" > Feat </a>
+  <mat-menu #menuFeat="matMenu">
+    <a mat-menu-item routerLink="/feat/auth">
+      <mat-icon>dialpad</mat-icon>
+      <span>Auth</span>
+    </a>
+  </mat-menu>
+
+</mat-nav-list>
+<nav mat-nav-list>
   <ul>
-    <li>
+    <!-- <li mat-list-item>
       <a routerLink="/">Home</a>
     </li>
     <li>
@@ -24,8 +60,8 @@
           <a routerLink="/a11y/rdf-model">RDF Model</a>
         </li>
       </ul>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <a routerLink="/fire">Fire</a>
       <ul>
         <li>
@@ -33,6 +69,14 @@
         </li>
       </ul>
     </li>
+    <li>
+      <a routerLink="/feat">Feat</a>
+      <ul>
+        <li>
+          <a routerLink="/feat/auth">Auth</a>
+        </li>
+      </ul>
+    </li> -->
   </ul>
 </nav>
 <main>

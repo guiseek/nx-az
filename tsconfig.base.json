@@ -21,7 +21,10 @@
       "@nx-util/types": ["libs/util/types/src/index.ts"],
       "@nx-fire/auth": ["libs/fire/auth/src/index.ts"],
       "@nx-seek/cli": ["libs/seek/cli/src/index.ts"],
-      "@nx-fire/store": ["libs/fire/store/src/index.ts"]
+      "@nx-fire/store": ["libs/fire/store/src/index.ts"],
+      "@nx-feat/auth": ["libs/feat/auth/src/index.ts"],
+      "@nx-core/domain": ["libs/core/domain/src/index.ts"],
+      "@nx-core/data": ["libs/core/data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
