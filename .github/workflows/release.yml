@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - next
+      - beta
+      - alpha
+
+env:
+  CI: true
+
+jobs:
+  release:
+    name: Build, Release & Publish
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v1
+      - name: Install Dependencies
+        run: yarn
+      - name: Check Format
+        run: yarn format:check
+      - name: Lint Workspace & Code
+        run: |
+          yarn nx -- workspace-lint
+          yarn affected:lint -- --all
+      - name: Unit Tests
+        run: yarn affected:test -- --all
+      - name: Build, Release on GitHub & Publish to NPM
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release
