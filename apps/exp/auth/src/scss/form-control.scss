@@ -1,0 +1,61 @@
+.form-control {
+  .label {
+    display: none;
+  }
+}
+
+.form-control--has-label {
+  .label {
+    display: inline-block;
+    color: var(--nx-input-label-color);
+    margin-bottom: var(--nx-spacing-xxx-small);
+
+    &.label--small {
+      font-size: var(--nx-input-label-font-size-small);
+    }
+
+    &.label--medium {
+      font-size: var(--nx-input-label-font-size-medium);
+    }
+
+    &.label--large {
+      font-size: var(--nx-input-label-font-size-large);
+    }
+
+    &.label--valid {
+      color: var(--nx-input-label-color-valid);
+    }
+
+    &.label--invalid {
+      color: var(--nx-input-label-color-invalid);
+    }
+  }
+}
+
+.help-text {
+  color: var(--nx-input-help-text-color);
+
+  &.help-text--small {
+    font-size: var(--nx-input-help-text-font-size-small);
+  }
+
+  &.help-text--medium {
+    font-size: var(--nx-input-help-text-font-size-medium);
+  }
+
+  &.help-text--large {
+    font-size: var(--nx-input-help-text-font-size-large);
+  }
+
+  &.help-text--valid {
+    color: var(--nx-input-help-text-color-valid);
+  }
+
+  &.help-text--invalid {
+    color: var(--nx-input-help-text-color-invalid);
+  }
+
+  ::slotted(*) {
+    margin-top: var(--nx-spacing-xxx-small);
+  }
+}

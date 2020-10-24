@@ -59,6 +59,9 @@
     },
     "core-data": {
       "tags": ["scope:core"]
+    },
+    "exp-auth": {
+      "tags": []
     }
   }
 }

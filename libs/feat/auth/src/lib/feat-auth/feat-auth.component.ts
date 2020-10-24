@@ -27,12 +27,14 @@ export class FeatAuthComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit() {
     console.log('this.feat: ', this.feat)
-    this.feat.submitted
-      .pipe(
-        takeUntil(this.destroy$),
-        filter(() => this.feat.form.valid)
-      )
-      .subscribe()
+    if (this.feat) {
+      this.feat.submitted
+        .pipe(
+          takeUntil(this.destroy$),
+          filter(() => this.feat.form.valid)
+        )
+        .subscribe()
+    }
   }
 
   ngOnDestroy() {
