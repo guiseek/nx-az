@@ -1,0 +1,9 @@
+<nx-feat-auth>
+  <p>{{ (loading$ | async) ? 'Carregando...' : '' }}</p>
+  <p>{{ error$ | async }}</p>
+  <pre>{{ user$ | async | json }}</pre>
+
+  <mat-card>
+    <nx-feat-auth-form (submitted)="onSubmit($event)"></nx-feat-auth-form>
+  </mat-card>
+</nx-feat-auth>

@@ -311,7 +311,11 @@
         "release": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [{ "command": "npx semantic-release" }],
+            "commands": [
+              {
+                "command": "npx semantic-release"
+              }
+            ],
             "cwd": "libs/fire/auth"
           }
         }
@@ -606,6 +610,128 @@
             "packageJson": "libs/core/data/package.json",
             "main": "libs/core/data/src/index.ts",
             "assets": ["libs/core/data/*.md"]
+          }
+        }
+      }
+    },
+    "exp-auth": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/exp/auth",
+      "sourceRoot": "apps/exp/auth/src",
+      "prefix": "exp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/exp/auth",
+            "index": "apps/exp/auth/src/index.html",
+            "main": "apps/exp/auth/src/main.ts",
+            "polyfills": "apps/exp/auth/src/polyfills.ts",
+            "tsConfig": "apps/exp/auth/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/exp/auth/src/favicon.ico",
+              "apps/exp/auth/src/assets"
+            ],
+            "styles": ["apps/exp/auth/src/styles.scss"],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "@firebase/auth",
+              "@angular/fire/firestore"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exp/auth/src/environments/environment.ts",
+                  "with": "apps/exp/auth/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "exp-auth:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "exp-auth:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "exp-auth:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/exp/auth/tsconfig.app.json",
+              "apps/exp/auth/tsconfig.spec.json",
+              "apps/exp/auth/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/exp/auth/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/exp/auth/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

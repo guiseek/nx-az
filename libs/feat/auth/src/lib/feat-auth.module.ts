@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { FeatAuthComponent } from './feat-auth/feat-auth.component'
 import { FeatAuthFormComponent } from './feat-auth-form/feat-auth-form.component'
 import { FeatAuthContainer } from './containers/feat-auth.container'
+import { FeatAuthProviderDirective } from './providers/feat-auth-provider.directive'
 
 @NgModule({
   imports: [
@@ -28,7 +29,17 @@ import { FeatAuthContainer } from './containers/feat-auth.container'
 
     ReactiveFormsModule,
   ],
-  declarations: [FeatAuthComponent, FeatAuthFormComponent, FeatAuthContainer],
-  exports: [FeatAuthComponent, FeatAuthFormComponent, FeatAuthContainer],
+  declarations: [
+    FeatAuthComponent,
+    FeatAuthFormComponent,
+    FeatAuthContainer,
+    FeatAuthProviderDirective,
+  ],
+  exports: [
+    FeatAuthComponent,
+    FeatAuthFormComponent,
+    FeatAuthContainer,
+    FeatAuthProviderDirective,
+  ],
 })
 export class FeatAuthModule {}

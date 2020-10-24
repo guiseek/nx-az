@@ -1,0 +1,277 @@
+@import 'mixins/make-color-palette';
+
+:root {
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Color tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-color-primary-hue: 203;
+  --nx-color-primary-saturation: 100%;
+  --nx-color-primary-text: var(--nx-color-white);
+
+  --nx-color-success-hue: 110;
+  --nx-color-success-saturation: 70%;
+  --nx-color-success-text: var(--nx-color-white);
+
+  --nx-color-info-hue: var(--nx-color-primary-hue);
+  --nx-color-info-saturation: 10%;
+  --nx-color-info-text: var(--nx-color-white);
+
+  --nx-color-warning-hue: 40;
+  --nx-color-warning-saturation: 90%;
+  --nx-color-warning-text: var(--nx-color-white);
+
+  --nx-color-danger-hue: 10;
+  --nx-color-danger-saturation: 95%;
+  --nx-color-danger-text: var(--nx-color-white);
+
+  --nx-color-gray-hue: var(--nx-color-primary-hue);
+  --nx-color-gray-saturation: 10%;
+  --nx-color-gray-text: var(--nx-color-white);
+
+  --nx-color-white: white;
+  --nx-color-black: black;
+
+  @include make-color-palette('primary');
+  @include make-color-palette('success');
+  @include make-color-palette('info');
+  @include make-color-palette('warning');
+  @include make-color-palette('danger');
+  @include make-color-palette('gray');
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Border radius tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-border-radius-small: 0.125rem; // 2px
+  --nx-border-radius-medium: 0.25rem; // 4px
+  --nx-border-radius-large: 0.5rem; // 8px
+  --nx-border-radius-x-large: 1rem; // 16px
+
+  --nx-border-radius-circle: 50%;
+  --nx-border-radius-pill: 9999px;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Elevation tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-shadow-x-small: 0 1px 0 rgba(0, 0, 0, 0.05);
+  --nx-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --nx-shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --nx-shadow-large: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --nx-shadow-x-large: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Spacing tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-spacing-xxx-small: 0.125rem; // 2px
+  --nx-spacing-xx-small: 0.25rem; // 4px
+  --nx-spacing-x-small: 0.5rem; // 8px
+  --nx-spacing-small: 0.75rem; // 12px
+  --nx-spacing-medium: 1rem; // 16px
+  --nx-spacing-large: 1.25rem; // 20px
+  --nx-spacing-x-large: 1.75rem; // 28px
+  --nx-spacing-xx-large: 2.25rem; // 36px
+  --nx-spacing-xxx-large: 3rem; // 48px
+  --nx-spacing-xxxx-large: 4.5rem; // 72px
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Transition tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-transition-x-slow: 1000ms;
+  --nx-transition-slow: 500ms;
+  --nx-transition-medium: 250ms;
+  --nx-transition-fast: 150ms;
+  --nx-transition-x-fast: 50ms;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Typography tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Fonts
+  --nx-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  --nx-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --nx-font-serif: Georgia, 'Times New Roman', serif;
+
+  // Font sizes
+  --nx-font-size-xx-small: 0.625rem; // 10px
+  --nx-font-size-x-small: 0.75rem; // 12px
+  --nx-font-size-small: 0.875rem; // 14px
+  --nx-font-size-medium: 1rem; // 16px
+  --nx-font-size-large: 1.25rem; // 20px
+  --nx-font-size-x-large: 1.5rem; // 24px
+  --nx-font-size-xx-large: 2.25rem; // 36px
+  --nx-font-size-xxx-large: 3rem; // 48px
+  --nx-font-size-xxxx-large: 4.5rem; // 72px
+
+  // Font weights
+  --nx-font-weight-light: 300;
+  --nx-font-weight-normal: 400;
+  --nx-font-weight-semibold: 500;
+  --nx-font-weight-bold: 700;
+
+  // Letter spacings
+  --nx-letter-spacing-dense: -0.015em;
+  --nx-letter-spacing-normal: normal;
+  --nx-letter-spacing-loose: 0.075em;
+
+  // Line heights
+  --nx-line-height-dense: 1.4;
+  --nx-line-height-normal: 1.8;
+  --nx-line-height-loose: 2.2;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Form tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Focus ring
+  --nx-focus-ring-hue: var(--nx-color-primary-hue);
+  --nx-focus-ring-saturation: var(--nx-color-primary-saturation);
+  --nx-focus-ring-lightness: 50%;
+  --nx-focus-ring-alpha: 0.33;
+  --nx-focus-ring-width: 3px;
+  --nx-focus-ring-box-shadow: 0 0 0 var(--nx-focus-ring-width)
+    hsla(
+      var(--nx-focus-ring-hue),
+      var(--nx-focus-ring-saturation),
+      var(--nx-focus-ring-lightness),
+      var(--nx-focus-ring-alpha)
+    );
+  --nx-focus-ring-box-shadow-inset: inset 0 0 0 var(--nx-focus-ring-width)
+    hsla(
+      var(--nx-focus-ring-hue),
+      var(--nx-focus-ring-saturation),
+      var(--nx-focus-ring-lightness),
+      var(--nx-focus-ring-alpha)
+    );
+
+  // Buttons
+  --nx-button-font-size-small: var(--nx-font-size-x-small);
+  --nx-button-font-size-medium: var(--nx-font-size-small);
+  --nx-button-font-size-large: var(--nx-font-size-medium);
+
+  // Inputs
+  --nx-input-height-small: 30px;
+  --nx-input-height-medium: 40px;
+  --nx-input-height-large: 50px;
+
+  --nx-input-background-color: var(--nx-color-white);
+  --nx-input-background-color-hover: var(--nx-color-white);
+  --nx-input-background-color-focus: var(--nx-color-white);
+  --nx-input-background-color-disabled: var(--nx-color-gray-95);
+
+  --nx-input-border-color: var(--nx-color-gray-80);
+  --nx-input-border-color-hover: var(--nx-color-gray-70);
+  --nx-input-border-color-focus: var(--nx-color-primary-50);
+  --nx-input-border-color-disabled: var(--nx-color-gray-80);
+  --nx-input-border-color-valid: var(--nx-color-success-50);
+  --nx-input-border-color-invalid: var(--nx-color-danger-50);
+  --nx-input-border-width: 1px;
+
+  --nx-input-border-radius-small: 4px;
+  --nx-input-border-radius-medium: 4px;
+  --nx-input-border-radius-large: 4px;
+
+  --nx-input-font-family: var(--nx-font-sans);
+  --nx-input-font-weight: var(--nx-font-weight-normal);
+  --nx-input-font-size-small: var(--nx-font-size-small);
+  --nx-input-font-size-medium: var(--nx-font-size-medium);
+  --nx-input-font-size-large: var(--nx-font-size-large);
+  --nx-input-letter-spacing: var(--nx-letter-spacing-normal);
+
+  --nx-input-color: var(--nx-color-gray-30);
+  --nx-input-color-hover: var(--nx-color-gray-30);
+  --nx-input-color-focus: var(--nx-color-gray-30);
+  --nx-input-color-disabled: var(--nx-color-gray-10);
+  --nx-input-color-valid: var(--nx-color-success-40);
+  --nx-input-color-invalid: var(--nx-color-danger-40);
+
+  --nx-input-icon-color: var(--nx-color-gray-60);
+  --nx-input-icon-color-hover: var(--nx-color-gray-40);
+  --nx-input-icon-color-focus: var(--nx-color-gray-40);
+
+  --nx-input-placeholder-color: var(--nx-color-gray-60);
+  --nx-input-placeholder-color-disabled: var(--nx-color-gray-40);
+
+  --nx-input-spacing-small: 10px;
+  --nx-input-spacing-medium: 12px;
+  --nx-input-spacing-large: 14px;
+
+  // Labels
+  --nx-input-label-font-size-small: var(--nx-font-size-small);
+  --nx-input-label-font-size-medium: var(--nx-font-size-medium);
+  --nx-input-label-font-size-large: var(--nx-font-size-large);
+
+  --nx-input-label-color: inherit;
+  --nx-input-label-color-valid: inherit;
+  --nx-input-label-color-invalid: inherit;
+
+  // Help text
+  --nx-input-help-text-font-size-small: var(--nx-font-size-x-small);
+  --nx-input-help-text-font-size-medium: var(--nx-font-size-small);
+  --nx-input-help-text-font-size-large: var(--nx-font-size-medium);
+
+  --nx-input-help-text-color: var(--nx-color-gray-60);
+  --nx-input-help-text-color-valid: var(--nx-color-success-40);
+  --nx-input-help-text-color-invalid: var(--nx-color-danger-40);
+
+  // Toggles (checkboxes, radios, switches)
+  --nx-toggle-size: 16px;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Overlay tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-overlay-background-color: hsla(
+    var(--nx-color-gray-hue),
+    var(--nx-color-gray-saturation),
+    20%,
+    0.5
+  );
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Tooltip tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-tooltip-border-radius: var(--nx-border-radius-medium);
+  --nx-tooltip-background-color: var(--nx-color-gray-10);
+  --nx-tooltip-color: var(--nx-color-white);
+  --nx-tooltip-font-family: var(--nx-font-sans);
+  --nx-tooltip-font-weight: var(--nx-font-weight-normal);
+  --nx-tooltip-font-size: var(--nx-font-size-small);
+  --nx-tooltip-line-height: var(--nx-line-height-normal);
+  --nx-tooltip-padding: var(--nx-spacing-xxx-small) var(--nx-spacing-x-small);
+  --nx-tooltip-arrow-size: 5px;
+  --nx-tooltip-arrow-start-end-offset: 8px;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Z-index tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --nx-z-index-drawer: 700;
+  --nx-z-index-dialog: 800;
+  --nx-z-index-dropdown: 900;
+  --nx-z-index-tooltip: 1000;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Internal utility classes
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[hidden] {
+  display: none !important;
+}
+
+.nx-scroll-lock {
+  overflow: hidden !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Component light DOM styles - only follow this pattern when absolutely necessary!
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// @import '../components/button-group/button-group.light-dom';
