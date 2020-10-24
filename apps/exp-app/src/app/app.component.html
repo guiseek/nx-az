@@ -7,15 +7,15 @@
   <h1>Welcome to {{ title }}!</h1>
 </mat-toolbar>
 <mat-nav-list class="nav-menu">
-  <a mat-list-item routerLink="/" > Home </a>
+  <a mat-list-item routerLink="/"> Home </a>
 
-  <a mat-list-item routerLink="/a11y" [matMenuTriggerFor]="menuA11y" > A11y </a>
+  <a mat-list-item routerLink="/a11y" [matMenuTriggerFor]="menuA11y"> A11y </a>
   <mat-menu #menuA11y="matMenu">
     <a mat-menu-item routerLink="/a11y/forms">
       <mat-icon>dialpad</mat-icon>
       <span>Forms</span>
     </a>
-    <button mat-menu-item  routerLink="/a11y/focus">
+    <button mat-menu-item routerLink="/a11y/focus">
       <mat-icon>voicemail</mat-icon>
       <span>Focus</span>
     </button>
@@ -25,7 +25,7 @@
     </button>
   </mat-menu>
 
-  <a mat-list-item routerLink="/fire" [matMenuTriggerFor]="menuFire" > Fire </a>
+  <a mat-list-item routerLink="/fire" [matMenuTriggerFor]="menuFire"> Fire </a>
   <mat-menu #menuFire="matMenu">
     <a mat-menu-item routerLink="/fire/auth">
       <mat-icon>dialpad</mat-icon>
@@ -33,7 +33,7 @@
     </a>
   </mat-menu>
 
-  <a mat-list-item routerLink="/feat" [matMenuTriggerFor]="menuFeat" > Feat </a>
+  <a mat-list-item routerLink="/feat" [matMenuTriggerFor]="menuFeat"> Feat </a>
   <mat-menu #menuFeat="matMenu">
     <a mat-menu-item routerLink="/feat/auth">
       <mat-icon>dialpad</mat-icon>
@@ -41,14 +41,13 @@
     </a>
   </mat-menu>
 
-  <a mat-list-item routerLink="/mat" [matMenuTriggerFor]="menuMat" > Mat </a>
+  <a mat-list-item routerLink="/mat" [matMenuTriggerFor]="menuMat"> Mat </a>
   <mat-menu #menuMat="matMenu">
     <a mat-menu-item routerLink="/mat/date">
       <mat-icon>dialpad</mat-icon>
       <span>Form</span>
     </a>
   </mat-menu>
-
 </mat-nav-list>
 <nav mat-nav-list>
   <ul>

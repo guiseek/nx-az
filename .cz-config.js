@@ -4,6 +4,21 @@ module.exports = {
     { value: 'fix', name: 'fix:      A bug fix' },
     { value: 'docs', name: 'docs:     Documentation only changes' },
     {
+      value: 'refactor',
+      name:
+        'refactor: A code change that neither fixes a bug nor adds a feature',
+    },
+    {
+      value: 'perf',
+      name: 'perf:     A code change that improves performance',
+    },
+    { value: 'test', name: 'test:     Adding missing tests' },
+    {
+      value: 'style',
+      name:
+        'style:    Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)',
+    },
+    {
       value: 'cleanup',
       name:
         'cleanup:  A code change that neither fixes a bug nor adds a feature',
@@ -12,6 +27,7 @@ module.exports = {
       value: 'chore',
       name: "chore:    Other changes that don't modify src or test files",
     },
+    { value: 'revert', name: 'revert:   Reverts' },
     { value: 'wip', name: 'wip:      Work in progress' },
     { value: 'ci', name: 'ci:       Continuous integration' },
   ],
@@ -58,12 +74,12 @@ module.exports = {
     customScope: 'Indique o escopo desta alteração:',
     subject: 'Escreva uma descrição CURTA e IMPERATIVA da mudança:\n',
     body:
-      'Forneça uma descrição mais detalhada da alteração (optional). Use "|" para quebras de linha:\n',
-    breaking:
-      'Listar quaisquer ALTERAÇÕES DE QUEBRA / BREAKING CHANGES (opcional):\n',
+      'Descrição detalhada das alterações (optional). Use "|" para quebras de linha:\n',
+    breaking: 'Listar quaisquer BREAKING CHANGES (opcional):\n',
     footer:
-      'Liste quaisquer conclusões de PROBLEMAS / ISSUES por esta alteração (opcional). Ex.: #31, #34:\n',
-    confirmCommit: 'Tem certeza de que deseja continuar com o commit acima?',
+      'Tivemos alguma issue resolvida por esta alteração? (opcional). Ex.: #31, #34:\n',
+    confirmCommit:
+      'Por favor, confira se está tudo certo para continuar com o commit',
   },
 
   allowCustomScopes: true,
