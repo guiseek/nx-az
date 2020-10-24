@@ -12,8 +12,8 @@ module.exports = {
       value: 'chore',
       name: "chore:    Other changes that don't modify src or test files",
     },
-    { value: 'wip', name: 'wip:      Trabalho em progresso' },
-    { value: 'ci', name: 'ci:       Integração contínua / Pipeline / Esteira' },
+    { value: 'wip', name: 'wip:      Work in progress' },
+    { value: 'ci', name: 'ci:       Continuous integration' },
   ],
 
   scopes: [
