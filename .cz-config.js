@@ -33,14 +33,15 @@ module.exports = {
   ],
 
   scopes: [
-    { name: 'a11y', description: 'anything a11y scope' },
+    { name: 'nx-a11y', description: 'anything a11y scope' },
     {
-      name: 'feat',
+      name: 'nx-feat',
       description: 'anything feat specific',
     },
-    { name: 'fire', description: 'anything fire scope' },
-    { name: 'seek', description: 'anything seek specific' },
-    { name: 'util', description: 'anything util specific' },
+    { name: 'nx-fire', description: 'anything fire scope' },
+    { name: 'nx-seek', description: 'anything seek specific' },
+    { name: 'nx-util', description: 'anything util specific' },
+    { name: 'nx-core', description: 'anything core specific' },
     {
       name: 'test',
       description: 'anything test specific (e.g., jest, cypress or util-mock)',
