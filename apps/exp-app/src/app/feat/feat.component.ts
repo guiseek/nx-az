@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'nx-feat',
+  selector: 'nx-az-feat',
   templateUrl: './feat.component.html',
   styleUrls: ['./feat.component.scss'],
 })

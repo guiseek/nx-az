@@ -10,5 +10,7 @@ module.exports = {
     '<rootDir>/libs/feat/auth',
     '<rootDir>/libs/core/domain',
     '<rootDir>/libs/core/data',
+    '<rootDir>/libs/mat/form',
+    '<rootDir>/libs/core/form',
   ],
 }

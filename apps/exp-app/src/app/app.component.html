@@ -41,6 +41,14 @@
     </a>
   </mat-menu>
 
+  <a mat-list-item routerLink="/mat" [matMenuTriggerFor]="menuMat" > Mat </a>
+  <mat-menu #menuMat="matMenu">
+    <a mat-menu-item routerLink="/mat/date">
+      <mat-icon>dialpad</mat-icon>
+      <span>Form</span>
+    </a>
+  </mat-menu>
+
 </mat-nav-list>
 <nav mat-nav-list>
   <ul>

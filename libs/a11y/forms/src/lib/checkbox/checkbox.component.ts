@@ -79,7 +79,7 @@ export class CheckboxComponent extends CheckboxAccessor
   @Output()
   checkedChange = new EventEmitter<CheckboxComponent>()
 
-  control!: AbstractControl
+  control!: FormControl
 
   constructor(@Optional() @Self() public ngControl: NgControl) {
     super()
@@ -87,7 +87,7 @@ export class CheckboxComponent extends CheckboxAccessor
 
   ngAfterContentInit() {
     this.control = this.ngControl?.control
-      ? this.ngControl?.control
+      ? (this.ngControl?.control as FormControl)
       : new FormControl()
   }
 

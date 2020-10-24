@@ -10,7 +10,7 @@
     [attr.aria-checked]="el?.checked"
     [attr.disabled]="disabled"
     [formControl]="control"
-    (change)="onChangeEvent($event)"
+    (change)="onChangeEvent($any($event))"
     #input
   />
   <label [for]="id">
