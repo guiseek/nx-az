@@ -1,0 +1,19 @@
+<div>
+  <p>
+    auth works!
+  </p>
+
+  <p>{{ error$ | async }}</p>
+
+  <p>{{ (loading$ | async) ? 'Carregando...' : '' }}</p>
+
+  <pre>{{ user$ | async }}</pre>
+
+  <div class="forms">
+    <nx-az-auth-create
+      id="create"
+      (create)="onCreate($event)"
+    ></nx-az-auth-create>
+    <nx-az-auth-login id="login" (login)="onLogin($event)"></nx-az-auth-login>
+  </div>
+</div>

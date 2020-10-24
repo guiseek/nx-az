@@ -1,7 +1,7 @@
 {
   "npmScope": "nx-az",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "angular.json": "*",
@@ -18,7 +18,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "compodoc"]
       }
     }
   },
@@ -29,6 +29,36 @@
     "exp-app-e2e": {
       "tags": [],
       "implicitDependencies": ["exp-app"]
+    },
+    "a11y-focus": {
+      "tags": ["scope:a11y"]
+    },
+    "a11y-forms": {
+      "tags": ["scope:a11y"]
+    },
+    "util-types": {
+      "tags": ["scope:util"]
+    },
+    "fire-auth": {
+      "tags": ["scope:fire"]
+    },
+    "doc-app": {
+      "tags": ["type:app"]
+    },
+    "seek-cli": {
+      "tags": ["scope:seek", "platform:cli"]
+    },
+    "fire-store": {
+      "tags": ["scope:fire"]
+    },
+    "feat-auth": {
+      "tags": ["scope:feat"]
+    },
+    "core-domain": {
+      "tags": ["scope:core"]
+    },
+    "core-data": {
+      "tags": ["scope:core"]
     }
   }
 }

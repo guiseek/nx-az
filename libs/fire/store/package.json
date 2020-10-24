@@ -1,0 +1,13 @@
+{
+  "name": "@nx-fire/store",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.1.6",
+    "@angular/core": "^10.1.6",
+    "@angular/fire": "^6.0.3",
+    "firebase": "^7.13.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

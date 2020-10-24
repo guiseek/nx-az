@@ -2,11 +2,13 @@
  * Remove template code below
  */
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
   font-family: sans-serif;
   min-width: 300px;
-  max-width: 600px;
-  margin: 50px auto;
+  // max-width: 600px;
 }
 
 .gutter-left {
@@ -23,15 +25,37 @@
   justify-content: center;
 }
 
-header {
-  background-color: #143055;
+.header {
   color: white;
   padding: 5px;
   border-radius: 3px;
 }
+.nav-menu {
+  display: flex;
+}
+nav {
+  padding: 0 8px;
 
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: circle;
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+    li::marker {
+      color: #999;
+    }
+  }
+}
 main {
-  padding: 0 36px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  position: relative;
+  // padding: 0 36px;
 }
 
 p {
