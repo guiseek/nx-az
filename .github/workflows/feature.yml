@@ -1,0 +1,33 @@
+name: Feature
+
+on:
+  push:
+    branches:
+      - feature/**
+
+env:
+  CI: true
+
+jobs:
+  check:
+    name: PR Checklist
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v1
+      - name: Install Dependencies
+        run: yarn
+      - name: Lint Workspace & Code
+        run: |
+          yarn nx workspace-lint
+          yarn affected:lint --all
+      - name: Unit Tests
+        run: yarn affected:test --all
+      - name: Test Builds
+        run: yarn affected:build --all
+      - name: Build, Release on GitHub & Publish to NPM
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release --args="--dry-run"
