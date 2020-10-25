@@ -53,10 +53,13 @@ async function insertVersions(packageRoot: string) {
   const packageJsonPath = join(resolvedPackageRoot, 'package.json')
   const versionsJsPath = join(
     resolvedPackageRoot,
-    'src',
+    // 'src',
+    'esm2015',
     'utils',
     'versions.js'
   )
+
+  console.info(versionsJsPath)
 
   if (!existsSync(packageJsonPath)) {
     throw new Error(

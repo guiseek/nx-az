@@ -1,6 +1,8 @@
 <nx-feat-auth>
   <p>{{ (loading$ | async) ? 'Carregando...' : '' }}</p>
+
   <p>{{ error$ | async }}</p>
+
   <pre>{{ user$ | async | json }}</pre>
 
   <mat-card>
