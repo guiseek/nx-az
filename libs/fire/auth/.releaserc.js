@@ -1,13 +1,13 @@
 const { createReleaseConfigWithScopeFilter } = require('../../../tools/release')
 
 // const releaserc = createReleaseConfigWithScopeFilter({
-//   projectScope: 'fire-auth',
+//   projectScope: 'nx-fire',
 //   projectRoot: 'libs/fire/auth',
 //   buildOutput: 'dist/libs/fire/auth',
-// });
-// console.log(releaserc);
+// })
+// console.log(JSON.stringify(releaserc))
 module.exports = createReleaseConfigWithScopeFilter({
-  projectScope: 'fire-auth',
+  projectScope: 'nx-fire',
   projectRoot: 'libs/fire/auth',
   buildOutput: 'dist/libs/fire/auth',
 })
