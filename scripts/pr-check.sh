@@ -1,11 +1,11 @@
 #!/bin/bash
 
 echo - name: Check Format
-npm run format:check
+yarn format:check
 echo - name: Lint Workspace & Code
-npm run nx -- workspace-lint
-npm run affected:lint -- --all
+yarn nx workspace-lint
+yarn affected:lint --all
 echo - name: Unit Tests
-npm run affected:test -- --all
+yarn affected:test --all
 echo - name: Test Builds
-npm run affected:build -- --all
+yarn affected:build --all

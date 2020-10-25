@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'exp-app',
-  preset: '../../jest.preset.js',
+  displayName: 'feat-meet',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../coverage/apps/exp-app',
+  coverageDirectory: '../../../coverage/libs/feat/meet',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

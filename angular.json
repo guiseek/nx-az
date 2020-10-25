@@ -735,6 +735,170 @@
           }
         }
       }
+    },
+    "feat-meet": {
+      "projectType": "library",
+      "root": "libs/feat/meet",
+      "sourceRoot": "libs/feat/meet/src",
+      "prefix": "nx-az",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/feat/meet/tsconfig.lib.json",
+            "project": "libs/feat/meet/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/feat/meet/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feat/meet/tsconfig.lib.json",
+              "libs/feat/meet/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feat/meet/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feat/meet/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "exp-meet": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/exp/meet",
+      "sourceRoot": "apps/exp/meet/src",
+      "prefix": "exp-meet",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/exp/meet",
+            "index": "apps/exp/meet/src/index.html",
+            "main": "apps/exp/meet/src/main.ts",
+            "polyfills": "apps/exp/meet/src/polyfills.ts",
+            "tsConfig": "apps/exp/meet/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/exp/meet/src/favicon.ico",
+              "apps/exp/meet/src/assets"
+            ],
+            "styles": ["apps/exp/meet/src/styles.scss"],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "@firebase/auth",
+              "@angular/fire/firestore"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exp/meet/src/environments/environment.ts",
+                  "with": "apps/exp/meet/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "exp-meet:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "exp-meet:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "exp-meet:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/exp/meet/tsconfig.app.json",
+              "apps/exp/meet/tsconfig.spec.json",
+              "apps/exp/meet/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/exp/meet/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/exp/meet/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -777,7 +941,8 @@
     },
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "cypress",
+      "strict": true
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest",

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'nx-az-root',
+  selector: 'exp-meet-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'exp-app'
+  title = 'exp-meet'
 }
