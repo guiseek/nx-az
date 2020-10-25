@@ -10,7 +10,7 @@ env:
 
 jobs:
   check:
-    name: PR Checklist
+    name: Push Checklist
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
     steps:
@@ -30,4 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn release --args="--dry-run"
+        run: yarn release
