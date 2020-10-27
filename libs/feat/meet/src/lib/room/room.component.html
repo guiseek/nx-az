@@ -1,0 +1,94 @@
+<p>
+  room works!
+</p>
+<div id="buttons" #buttons>
+  <button class="mdc-button mdc-button--raised" id="cameraBtn" #cameraBtn>
+    <i class="material-icons mdc-button__icon" aria-hidden="true"
+      >perm_camera_mic</i
+    >
+    <span class="mdc-button__label">Open camera & microphone</span>
+  </button>
+  <button
+    class="mdc-button mdc-button--raised"
+    disabled
+    id="createBtn"
+    #createBtn
+  >
+    <i class="material-icons mdc-button__icon" aria-hidden="true">group_add</i>
+    <span class="mdc-button__label">Create room</span>
+  </button>
+  <button class="mdc-button mdc-button--raised" disabled id="joinBtn" #joinBtn>
+    <i class="material-icons mdc-button__icon" aria-hidden="true">group</i>
+    <span class="mdc-button__label">Join room</span>
+  </button>
+  <button
+    class="mdc-button mdc-button--raised"
+    disabled
+    type="button"
+    id="hangupBtn"
+    #hangupBtn
+  >
+    <i class="material-icons mdc-button__icon" aria-hidden="true">close</i>
+    <span class="mdc-button__label">Hangup</span>
+  </button>
+</div>
+
+<div>
+  <span id="currentRoom" #currentRoom></span>
+</div>
+<div id="videos" #videos>
+  <video id="localVideo" #localVideo muted autoplay playsinline></video>
+  <video id="remoteVideo" #remoteVideo autoplay playsinline></video>
+</div>
+
+<ng-template #roomDialog>
+  <div
+    class="mdc-dialog"
+    id="room-dialog"
+    role="alertdialog"
+    aria-modal="true"
+    aria-labelledby="my-dialog-title"
+    aria-describedby="my-dialog-content"
+  >
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface">
+        <h2 class="mdc-dialog__title" id="my-dialog-title">Join room</h2>
+        <div class="mdc-dialog__content" id="my-dialog-content">
+          Enter ID for room to join:
+          <div class="mdc-text-field">
+            <input
+              type="text"
+              id="room-id"
+              #roomId
+              class="mdc-text-field__input"
+            />
+            <label class="mdc-floating-label" for="my-text-field"
+              >Room ID</label
+            >
+            <div class="mdc-line-ripple"></div>
+          </div>
+        </div>
+        <footer class="mdc-dialog__actions">
+          <button
+            type="button"
+            class="mdc-button mdc-dialog__button"
+            data-mdc-dialog-action="no"
+            [mat-dialog-close]
+          >
+            <span class="mdc-button__label">Cancel</span>
+          </button>
+          <button
+            id="confirmJoinBtn"
+            #confirmJoinBtn
+            type="button"
+            class="mdc-button mdc-dialog__button"
+            data-mdc-dialog-action="yes"
+          >
+            <span class="mdc-button__label">Join</span>
+          </button>
+        </footer>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
+</ng-template>

@@ -1,0 +1,89 @@
+<div
+  #player
+  class="videoplayer"
+  [ngClass]="getOverlayClass('show-mouse', 'hide-mouse')"
+>
+  <div
+    class="header"
+    *ngIf="title"
+    [ngClass]="getOverlayClass('visible', 'hidden')"
+  >
+    {{ title }}
+  </div>
+
+  <video
+    #video
+    class="video"
+    [attr.src]="src ? src : null"
+    [attr.autoplay]="autoplay ? true : null"
+    [preload]="preload ? 'auto' : 'metadata'"
+    [attr.poster]="poster ? poster : null"
+    [attr.loop]="loop ? loop : null"
+  >
+    <ng-content select="source"></ng-content>
+    <ng-content select="track"></ng-content>
+    This browser does not support HTML5 video.
+  </video>
+
+  <div
+    class="controls"
+    *ngIf="videoLoaded"
+    [ngClass]="getOverlayClass('visible', 'hidden')"
+  >
+    <div class="progress">
+      <nx-progress-control
+        [color]="color"
+        [video]="video"
+      ></nx-progress-control>
+    </div>
+
+    <div class="menu">
+      <div class="left">
+        <nx-play-button
+          (playChanged)="playing = $event"
+          [video]="video"
+          [keyboard]="keyboard"
+        >
+        </nx-play-button>
+
+        <nx-frame-control
+          *ngIf="showFrameByFrame"
+          [video]="video"
+          [fps]="fps"
+        ></nx-frame-control>
+
+        <nx-volume-control
+          [muted]="muted"
+          (mutedChanged)="muted = $event; mutedChange.emit(muted)"
+          [color]="color"
+          [video]="video"
+          [keyboard]="keyboard"
+        >
+        </nx-volume-control>
+
+        <nx-time-control [video]="video"></nx-time-control>
+      </div>
+
+      <div class="right">
+        <nx-quality-control
+          *ngIf="quality"
+          [video]="video"
+        ></nx-quality-control>
+
+        <nx-download-button
+          *ngIf="download"
+          [title]="title"
+          [video]="video"
+        ></nx-download-button>
+
+        <nx-fullscreen-button
+          *ngIf="fullscreen"
+          (fullscreenChanged)="isFullscreen = $event"
+          [player]="player"
+          [keyboard]="keyboard"
+        ></nx-fullscreen-button>
+      </div>
+    </div>
+  </div>
+  <nx-video-spinner [spinner]="spinner" [video]="video"></nx-video-spinner>
+</div>

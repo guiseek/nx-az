@@ -13,6 +13,7 @@ import { FeatMeetModule } from '@nx-feat/meet'
 
 import { AppComponent } from './app.component'
 import { RoomComponent } from './room/room.component'
+import { ChatComponent } from './chat/chat.component'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCpiGoZzt0jk-_GAaw18ZRpJHu_DwbkpW4',
@@ -26,7 +27,7 @@ const firebaseConfig = {
 }
 
 @NgModule({
-  declarations: [AppComponent, RoomComponent],
+  declarations: [AppComponent, RoomComponent, ChatComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

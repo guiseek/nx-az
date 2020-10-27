@@ -7,6 +7,7 @@ import {
 } from '@angular/core'
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 import { database } from 'firebase/app'
+import { VideoComponent } from '../components'
 
 import { createMeetUid } from '../feat-meet.utilities'
 
@@ -33,7 +34,7 @@ export class FeatMeetComponent implements OnInit, OnDestroy {
 
   senderId!: string
 
-  @ViewChild('me') me!: ElementRef<HTMLVideoElement>
+  @ViewChild('me') me!: VideoComponent
   @ViewChild('remote') remote!: ElementRef<HTMLVideoElement>
 
   constructor(private afdb: AngularFireDatabase) {}
@@ -147,7 +148,7 @@ export class FeatMeetComponent implements OnInit, OnDestroy {
     navigator.mediaDevices
       .getUserMedia({ audio: true, video: true })
 
-      .then((stream) => (this.me.nativeElement.srcObject = stream))
+      .then((stream) => (this.me.video.nativeElement.srcObject = stream))
 
       .then((stream) => {
         this.pc.addStream(stream)
