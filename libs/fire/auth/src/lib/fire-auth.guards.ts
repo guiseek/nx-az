@@ -25,7 +25,7 @@ export class FireAuthGuard {
    * @example { path: 'route', component: YourCmp, canActivate: [FireAuthGuard.isAuth], data: { authGuardPipe: FireAuthGuard.redirectTo(['login']) }}
    * @static
    */
-  // static redirectTo = (path: string[]) => () => redirectUnauthorizedTo(path)
+  static redirectTo = (path: string[]) => () => redirectUnauthorizedTo(path)
 
   /**
    * @example { path: 'adm/:id', component: YourCmp, canActivate: [FireAuthGuard.isAuth], data: { authGuardPipe: FireAuthGuard.belongsTo('profile') }}
