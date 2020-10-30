@@ -7,6 +7,12 @@ on:
       - next
       - beta
       - alpha
+  pull_request:
+    branches:
+      - main
+      - next
+      - beta
+      - alpha
 
 env:
   CI: true
@@ -22,11 +28,9 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - name: Lint Workspace & Code
-        run: |
-          yarn nx -- workspace-lint
-          yarn affected:lint -- --all
+        run: yarn affected:lint
       - name: Unit Tests
-        run: yarn affected:test -- --all
+        run: yarn affected:test
       - name: Build, Release on GitHub & Publish to NPM
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
