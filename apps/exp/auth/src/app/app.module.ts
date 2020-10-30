@@ -8,11 +8,19 @@ import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon'
+
 import { FireStoreModule } from '@nx-fire/store'
-import { FireAuthModule } from '@nx-fire/auth'
+import { FireAuthGuard, FireAuthModule } from '@nx-fire/auth'
 
 import { AppComponent } from './app.component'
-import { FormModule } from './form/form.module'
+import { HomeComponent } from './home/home.component'
+import {
+  AngularFireAuthGuardModule,
+  canActivate,
+} from '@angular/fire/auth-guard'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCpiGoZzt0jk-_GAaw18ZRpJHu_DwbkpW4',
@@ -27,13 +35,23 @@ const firebaseConfig = {
 
 const routeConfig = [
   {
+    path: '',
+    component: HomeComponent,
+  },
+  {
     path: 'form',
     loadChildren: () => import('./form/form.module').then((m) => m.FormModule),
+  },
+  {
+    path: 'admin',
+    canActivate: [FireAuthGuard.isAuth],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
 ]
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -42,6 +60,11 @@ const routeConfig = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireAuthGuardModule,
+
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
 
     FireAuthModule.forRoot({
       users: {
@@ -52,8 +75,6 @@ const routeConfig = [
     FireStoreModule,
 
     RouterModule.forRoot(routeConfig, { initialNavigation: 'enabled' }),
-
-    FormModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
