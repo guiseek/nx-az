@@ -28,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - name: Lint Workspace & Code
-        run: yarn affected:lint
+        run: yarn lint
       - name: Unit Tests
         run: yarn affected:test
       - name: Build, Release on GitHub & Publish to NPM
