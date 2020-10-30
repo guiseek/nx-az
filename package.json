@@ -29,7 +29,7 @@
     "release": "nx affected --target release --all",
     "help": "nx help"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^10.1.0",
     "@angular/cdk": "^10.2.5",

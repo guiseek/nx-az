@@ -11,6 +11,21 @@
   // max-width: 600px;
 }
 
+.mat-list-base {
+  justify-content: space-around;
+  display: flex;
+
+  a.mat-list-item {
+    display: inline-flex;
+  }
+}
+// .mat-list-base a.mat-list-item,
+// .mat-list-base a.mat-list-item .mat-list-item-content {
+//   justify-content: center;
+//   display: flex;
+//   flex: 1;
+// }
+
 .gutter-left {
   margin-left: 9px;
 }

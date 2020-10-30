@@ -24,7 +24,8 @@
       "@nx-fire/store": ["libs/fire/store/src/index.ts"],
       "@nx-feat/auth": ["libs/feat/auth/src/index.ts"],
       "@nx-core/domain": ["libs/core/domain/src/index.ts"],
-      "@nx-core/data": ["libs/core/data/src/index.ts"]
+      "@nx-core/data": ["libs/core/data/src/index.ts"],
+      "@nx-feat/forms": ["libs/feat/forms/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

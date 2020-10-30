@@ -12,6 +12,7 @@ import {
   EventEmitter,
   AfterContentInit,
   ChangeDetectionStrategy,
+  Renderer2,
 } from '@angular/core'
 import {
   NG_VALUE_ACCESSOR,
@@ -23,7 +24,7 @@ import { ControlAccessor } from '../control-accessor'
 import { EventTargetAs } from '@nx-util/types'
 import { Subject } from 'rxjs'
 
-@Injectable()
+// @Injectable()
 export class CheckboxAccessor extends ControlAccessor {}
 
 const CheckboxProvider = {
@@ -51,6 +52,7 @@ export class CheckboxComponent extends CheckboxAccessor
   }
 
   private _id = `form-checkbox-${nextId++}`
+  private _indeterminate = false
 
   @Input()
   public set value(value: any) {
@@ -69,6 +71,15 @@ export class CheckboxComponent extends CheckboxAccessor
   }
 
   @Input()
+  public set indeterminate(state: boolean) {
+    this.el.indeterminate = state
+    this._indeterminate = state
+  }
+  public get indeterminate(): boolean {
+    return this._indeterminate
+  }
+
+  @Input()
   public set disabled(value: boolean) {
     this._disabled = value
   }
@@ -81,7 +92,10 @@ export class CheckboxComponent extends CheckboxAccessor
 
   control!: FormControl
 
-  constructor(@Optional() @Self() public ngControl: NgControl) {
+  constructor(
+    @Optional() @Self() public ngControl: NgControl,
+    private renderer: Renderer2
+  ) {
     super()
   }
 
@@ -92,11 +106,23 @@ export class CheckboxComponent extends CheckboxAccessor
   }
 
   onChangeEvent({ target }: EventTargetAs<HTMLInputElement>) {
-    if (target.value && target.value !== 'undefined') {
-      this.onChange(target.value)
+    const value = this.normalizeValue(target.value)
+
+    if (target.checked) {
+      this.control.setValue(value)
+      this.renderer.setProperty(this.el, 'checked', value)
+    } else {
+      this.control.setValue(false)
     }
+
+    this.onChange(value)
+
     this.checkedChange.emit(this)
     this.valueChange.emit(target.value)
+  }
+
+  normalizeValue(value = '') {
+    return value !== 'undefined' ? value : !!value
   }
 
   ngOnDestroy() {
