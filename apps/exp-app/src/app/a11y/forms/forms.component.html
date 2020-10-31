@@ -2,8 +2,65 @@
   forms works!
 </p>
 
-<form [formGroup]="form">
-  <nx-checkbox formControlName="check"></nx-checkbox>
+<form [formGroup]="phoneForm">
+  <mat-form-field>
+    <nx-phone formControlName="tel"></nx-phone>
+  </mat-form-field>
 </form>
 
-<pre>{{ form.value | json }}</pre>
+<pre>{{ phoneForm.value | json }}</pre>
+
+<nx-check
+  #checkTest
+  (checkChange)="log('check change occured')"
+  (checkedChange)="log('checked change occured')"
+  (indeterminateChange)="log('indeterminate change occured')"
+  >Check me.</nx-check
+>
+<button
+  nxButton="small"
+  (click)="checkTest.indeterminate = !checkTest.indeterminate"
+  type="button"
+>
+  Toggle Indeterminate
+</button>
+
+<form [formGroup]="optionsForm">
+  <nx-check formControlName="isNegative">Toggle negative</nx-check>
+  <nx-check formControlName="isRequired" (checkedChange)="toggleRequired()"
+    >Toggle required</nx-check
+  >
+  <nx-check formControlName="isDisabled" (checkedChange)="toggleDisabled()"
+    >Toggle disabled</nx-check
+  >
+  <nx-check formControlName="isLarge">Toggle checkbox label size</nx-check>
+  <nx-check formControlName="isLabelExpert"
+    >Toggle checkbox group label size (Expert)</nx-check
+  >
+</form>
+<hr />
+<h4>Result</h4>
+<form [formGroup]="myFormGroup">
+  <div [ngClass]="{ 'docs-inverse-container': optionsForm.value.isNegative }">
+    <nx-check-group
+      name="terms"
+      formControlName="terms"
+      [negative]="optionsForm.value.isNegative"
+      [labelSize]="optionsForm.value.isLarge ? 'large' : 'small'"
+    >
+      <nx-label [size]="optionsForm.value.isLabelExpert ? 'small' : 'large'"
+        >Select your choices</nx-label
+      >
+      <!-- <nx-error appearance="text">
+        Please select at least one checkbox.
+      </nx-error> -->
+      <nx-check value="Term 1">Checkbox 1</nx-check>
+      <nx-check value="Term 2">Checkbox 2</nx-check>
+      <nx-check value="Term 3">Checkbox 3</nx-check>
+      <nx-check value="Term 4">Checkbox 4</nx-check>
+      <nx-check value="Term 5">Checkbox 5</nx-check>
+    </nx-check-group>
+  </div>
+  <p>Form value: {{ myFormGroup.value | json }}</p>
+  <p>Form status: {{ myFormGroup.status | json }}</p>
+</form>

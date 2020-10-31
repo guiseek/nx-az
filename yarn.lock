@@ -2340,7 +2340,7 @@
     tslib "^1.9.3"
     yargs-parser "20.0.0"
 
-"@nrwl/workspace@10.3.1":
+"@nrwl/workspace@^10.0.0":
   version "10.3.1"
   resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-10.3.1.tgz#bf895f106b3e9f2f21a67e7dab318f24390e8bd6"
   integrity sha512-Ff4WzNo3tCCbxKf16/dtjJy0MfVrig+/sd+Fuvg0K8jdFpVTYsEcDAanLIk/7h3baBR9FYy81F3if7Ia8taizA==
