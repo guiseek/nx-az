@@ -36,7 +36,6 @@ const firebaseConfig = {
 const routeConfig = [
   {
     path: '',
-    ...canActivate(FireAuthGuard.redirectTo(['form'])),
     component: HomeComponent,
   },
   {
