@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/libs/mat/form',
     '<rootDir>/libs/core/form',
     '<rootDir>/apps/exp/auth',
+    '<rootDir>/libs/feat/forms',
   ],
 }

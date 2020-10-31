@@ -16,21 +16,9 @@
   <label [for]="id">
     <ng-content></ng-content>
     <i class="required" *ngIf="control.hasError('required')">*</i>
+
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <path d="M22.3,61.3c5.7,4.1,13.2,11.8,16.7,18C53,60.5,66,41,77.7,20.8" />
     </svg>
   </label>
 </div>
-<!-- <div class="inner">
-  <input type="checkbox" name="cb" id="cb" [formControl]="control" />
-  <label for="cb" id="checkbox">
-    <svg viewBox="0 0 100 100">
-      <path
-        class="box"
-        d="M82,89H18c-3.87,0-7-3.13-7-7V18c0-3.87,3.13-7,7-7h64c3.87,0,7,3.13,7,7v64C89,85.87,85.87,89,82,89z"
-      />
-      <polyline class="check" points="25.5,53.5 39.5,67.5 72.5,34.5 " />
-    </svg>
-    <span>Show Notes</span>
-  </label>
-</div> -->

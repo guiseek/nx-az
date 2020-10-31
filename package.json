@@ -29,7 +29,7 @@
     "release": "nx affected --target release --all",
     "help": "nx help"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^10.1.0",
     "@angular/cdk": "^10.2.5",
@@ -70,7 +70,7 @@
     "@nrwl/cypress": "10.3.1",
     "@nrwl/jest": "10.3.1",
     "@nrwl/nest": "^10.3.1",
-    "@nrwl/workspace": "10.3.1",
+    "@nrwl/workspace": "^10.0.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/exec": "^5.0.0",

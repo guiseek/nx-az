@@ -8,6 +8,10 @@ import { ActivatedRouteSnapshot } from '@angular/router'
 import { pipe } from 'rxjs'
 import { map } from 'rxjs/operators'
 
+/**
+ * @class FireAuthGuard
+ * @dynamic
+ */
 export class FireAuthGuard {
   /**
    * @example { path: 'route', component: YourCmp, canActivate: [FireAuthGuard.isAuth] }
@@ -19,7 +23,7 @@ export class FireAuthGuard {
    * @example { path: 'route', component: YourCmp, canActivate: [FireAuthGuard.isAuth], data: { authGuardPipe: FireAuthGuard.allowOnly('admin') }}
    * @static
    */
-  // static allowOnly = (role: string) => () => hasCustomClaim(role)
+  static allowOnly = (role: string) => () => hasCustomClaim(role)
 
   /**
    * @example { path: 'route', component: YourCmp, canActivate: [FireAuthGuard.isAuth], data: { authGuardPipe: FireAuthGuard.redirectTo(['login']) }}
@@ -31,16 +35,18 @@ export class FireAuthGuard {
    * @example { path: 'adm/:id', component: YourCmp, canActivate: [FireAuthGuard.isAuth], data: { authGuardPipe: FireAuthGuard.belongsTo('profile') }}
    * @static
    */
-  // static belongsTo = (prefix: string) => () => (next: ActivatedRouteSnapshot) =>
-  //   hasCustomClaim(`${prefix}-${next.params.id}`)
+  static belongsTo = (prefix: string) => (next: ActivatedRouteSnapshot) => {
+    const belongsTo = () => hasCustomClaim(`${prefix}-${next.params.id}`)
+    return belongsTo
+  }
 
   /**
    * @example { path: 'route', component: YourCmp, ...canActivate(FireAuthGuard.allowRoles(['admin','editor'])) }}
    * @static
    */
-  // static allowRoles = (roles: string[]) => () =>
-  //   pipe(
-  //     customClaims,
-  //     map((claims) => roles.some((role) => claims.roles.includes(role)))
-  //   )
+  static allowRoles = (roles: string[]) =>
+    pipe(
+      customClaims,
+      map((claims) => roles.some((role) => claims.roles.includes(role)))
+    )
 }

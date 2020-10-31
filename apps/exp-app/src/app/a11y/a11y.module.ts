@@ -1,3 +1,4 @@
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -17,6 +18,7 @@ import { FormsComponent } from './forms/forms.component'
     A11yRoutes,
     A11yFocusModule,
     A11yFormsModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
   ],
   declarations: [
