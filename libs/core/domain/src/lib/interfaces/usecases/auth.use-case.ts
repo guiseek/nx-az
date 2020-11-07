@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs'
-import { User } from '../../entities'
 import { AuthParams, AuthUser } from '../../models'
 
-export abstract class IUserRepository {
+// type Params = { [P in keyof AuthParams]-?: AuthParams[P]; }
+
+export abstract class IAuthUseCase {
   abstract login(param: AuthParams): Observable<AuthUser>
   abstract logout(): Observable<boolean>
 }

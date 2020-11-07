@@ -9,7 +9,7 @@ import {
 import { Subject } from 'rxjs'
 import { debounceTime, takeUntil } from 'rxjs/operators'
 import { FormBuilder, Validators } from '@angular/forms'
-import { AuthWithEmailAndPassword } from '@nx-fire/auth'
+import { AuthParams } from '@nx-core/domain'
 
 @Component({
   selector: 'nx-feat-auth-form',
@@ -25,9 +25,9 @@ export class FeatAuthFormComponent implements OnInit, OnDestroy {
     password: ['', [Validators.required, Validators.minLength(6)]],
   })
 
-  @Output() submitted = new EventEmitter<AuthWithEmailAndPassword>()
+  @Output() submitted = new EventEmitter<AuthParams>()
 
-  @Output() changed = new EventEmitter<Partial<AuthWithEmailAndPassword>>()
+  @Output() changed = new EventEmitter<Partial<AuthParams>>()
 
   constructor(private _fb: FormBuilder) {}
 

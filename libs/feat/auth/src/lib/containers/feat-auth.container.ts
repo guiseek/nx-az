@@ -1,9 +1,12 @@
-import { AuthLoginDb } from '@nx-core/data'
+import { AuthUseCase } from '@nx-core/domain'
 import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core'
-import { FireAuthService } from '@nx-fire/auth'
 import { Subject } from 'rxjs'
 
-@Component({ template: ``, changeDetection: ChangeDetectionStrategy.OnPush })
+@Component({
+  template: ``,
+  providers: [AuthUseCase],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class FeatAuthContainer implements OnDestroy {
   destroy$ = new Subject<void>()
 
@@ -13,8 +16,8 @@ export class FeatAuthContainer implements OnDestroy {
 
   user$ = this._fa.user$
 
-  // constructor(protected _fa: FireAuthService) {
-  constructor(protected _fa: FireAuthService) {
+  constructor(protected _fa: AuthUseCase) {
+    // constructor(protected _fa: FireAuthService) {
     console.log(_fa)
   }
 

@@ -2,8 +2,107 @@
   forms works!
 </p>
 
+<mat-form-field
+  appearance="fill"
+  class="drop-down-input"
+  [class.drop-down-input-active]="showPanel$ | async"
+  cdkOverlayOrigin
+  #originOverlay="cdkOverlayOrigin"
+>
+  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search</mat-label>
+  <input
+    matInput
+    [formControl]="stateCtrl"
+    name="dropdown-search"
+    placeholder="Start to type..."
+  />
+  <mat-icon matSuffix>arrow_drop_down</mat-icon>
+</mat-form-field>
+<ng-template
+  cdkConnectedOverlay
+  cdkConnectedOverlayHasBackdrop
+  [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+  [cdkConnectedOverlayOrigin]="originOverlay"
+  [cdkConnectedOverlayOpen]="showPanel$ | async"
+  [cdkConnectedOverlayPositions]="positions"
+>
+  <mat-nav-list class="mat-elevation-z1">
+    <a
+      mat-list-item
+      *ngFor="let state of filteredStates$ | async"
+      role="button"
+    >
+      {{ state.name }}
+    </a>
+  </mat-nav-list>
+  <!-- <section class="drop-down-serch-panel mat-elevation-z1">
+    <div class="drop-down-serch-panel_controls"></div>
+    <div class="panel-result-section">
+      <div
+        class="result-item"
+        *ngFor="let state of filteredStates$ | async"
+        role="button"
+
+      >
+        <img class="example-option-img" [src]="state.flag" height="25" />
+        <span>{{ state.name }}</span>
+        <small class="mat-caption">Population: {{ state.population }}</small>
+      </div>
+    </div>
+  </section> -->
+
+  <!--
 <form [formGroup]="form">
-  <nx-checkbox formControlName="check"></nx-checkbox>
+  <div>
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Search for a street"
+        formControlName="simple"
+        [matAutocomplete]="auto"
+      />
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let street of filteredStreets | async"
+        [value]="street"
+      >
+        {{ street }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+
+  <div cdkMonitorSubtreeFocus (cdkFocusChange)="togglePanel($event)">
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input
+        type="text"
+        matInput
+        autocomplete="off"
+        placeholder="Complex infos"
+        formControlName="complex"
+        #trigger="cdkOverlayOrigin"
+        cdkOverlayOrigin
+      />
+      <button type="button" matSuffix mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-form-field>
+    <ng-template
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="isOpen"
+    >
+      <mat-action-list cdkTrapFocusAutoCapture>
+        <button mat-list-item (click)="save()">Save</button>
+        <button mat-list-item (click)="undo()">Undo</button>
+      </mat-action-list>
+    </ng-template>
+  </div>
 </form>
 
-<pre>{{ form.value | json }}</pre>
+<pre>{{ form.value | json }}</pre> -->
+</ng-template>

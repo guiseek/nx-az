@@ -1,8 +1,5 @@
 import { User } from '../../entities/user'
-
-interface ValidationResult {
-  errors: string[]
-}
+import { ValidationResult } from './validator'
 
 export abstract class IUserValidator {
   abstract validateFields(param: User): ValidationResult

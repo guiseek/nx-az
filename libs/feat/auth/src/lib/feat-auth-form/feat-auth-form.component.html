@@ -1,3 +1,7 @@
+<h3 class="mat-h3">Auth</h3>
+
+<mat-divider></mat-divider>
+
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-label>Email</mat-label>
@@ -10,8 +14,6 @@
     <input type="password" matInput formControlName="password" />
     <mat-error>Senha inválida</mat-error>
   </mat-form-field>
-
-  <mat-divider></mat-divider>
 
   <footer>
     <button type="submit" mat-button>Autenticar</button>
