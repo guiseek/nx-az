@@ -9,7 +9,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 import { FireStoreModule } from '@nx-fire/store'
-import { FireAuthModule } from '@nx-fire/auth'
+import { FireAuthModule, FireAuthService } from '@nx-fire/auth'
+import { AuthUseCase } from '@nx-core/domain'
+import { swapProvider } from '@nx-feat/auth'
 
 import { AppComponent } from './app.component'
 import { FormModule } from './form/form.module'
@@ -55,7 +57,7 @@ const routeConfig = [
 
     FormModule,
   ],
-  providers: [],
+  providers: [swapProvider(AuthUseCase, FireAuthService)],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

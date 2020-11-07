@@ -1,6 +1,7 @@
 export function coreDomain(): string {
   return 'core-domain'
 }
+
 export * from './types'
 export * from './models'
 export * from './usecases'

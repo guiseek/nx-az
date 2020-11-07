@@ -1,12 +1,11 @@
 :host {
-  display: flex;
-  flex-direction: column;
+  display: block;
 
   form {
     display: flex;
     flex-direction: column;
+    margin-top: 32px;
 
-    // flex-wrap: wrap;
     gap: 10px;
 
     footer {

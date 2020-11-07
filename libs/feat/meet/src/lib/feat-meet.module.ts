@@ -22,6 +22,9 @@ import {
   SliderProgressBarComponent,
 } from './components'
 import { RoomComponent } from './room/room.component'
+import { AudioAnalyserDirective } from './directives/audio-analyser.directive'
+import { WaveformComponent } from './components/waveform/waveform.component'
+import { FrequencyBarGraphComponent } from './components/frequency-bar-graph/frequency-bar-graph.component'
 
 export * from './feat-meet/feat-meet.component'
 export * from './components'
@@ -54,6 +57,9 @@ export * from './services'
     FullscreenButtonComponent,
     PlayButtonComponent,
     QualityControlComponent,
+    AudioAnalyserDirective,
+    WaveformComponent,
+    FrequencyBarGraphComponent,
   ],
   exports: [
     FeatMeetComponent,
@@ -75,6 +81,9 @@ export * from './services'
     FullscreenButtonComponent,
     PlayButtonComponent,
     QualityControlComponent,
+    AudioAnalyserDirective,
+    WaveformComponent,
+    FrequencyBarGraphComponent,
   ],
   providers: [FullscreenService],
 })

@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  Input,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -33,6 +34,8 @@ export class FeatMeetComponent implements OnInit, OnDestroy {
   database!: database.Reference
 
   senderId!: string
+
+  @Input() autoplay = false
 
   @ViewChild('me') me!: VideoComponent
   @ViewChild('remote') remote!: ElementRef<HTMLVideoElement>

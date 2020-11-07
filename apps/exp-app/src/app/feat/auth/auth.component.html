@@ -2,6 +2,8 @@
 
 <p>{{ (loading$ | async) ? 'Carregando' : '' }}</p>
 
+<p>{{ error$ | async }}</p>
+
 <nx-feat-auth>
   <nx-feat-auth-form
     (changed)="onChange($event)"

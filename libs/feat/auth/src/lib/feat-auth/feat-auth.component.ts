@@ -7,7 +7,6 @@ import {
   EventEmitter,
   OnDestroy,
 } from '@angular/core'
-import { FireAuthService } from '@nx-fire/auth'
 import { Subject } from 'rxjs'
 import { filter, takeUntil } from 'rxjs/operators'
 
